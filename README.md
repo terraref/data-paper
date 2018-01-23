@@ -57,7 +57,7 @@ github.com/terraref/tutorials
 
 ## Data Records
 
-Table Columns: Data Product, Level, Attributes, days, total size, total file counts
+[Spreadsheet w/ data descriptor tables](https://docs.google.com/spreadsheets/d/1x8RERN_ecjMvaK0NynMfdnKiuXMKPSf_zrboaSzbBGM/edit#gid=2088455634)
 
 ## Technical Validation
 
