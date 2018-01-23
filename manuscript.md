@@ -1,10 +1,5 @@
 # TERRA REF: Open access reference data and computing infrastructure for high throughput plant phenotyping
 
-<!-- note: 
-   see templates and related docs in https://drive.google.com/drive/u/0/folders/0By_PDCcY5g2JVkEzWHJUaXZWSW8
-   author instructions https://www.nature.com/sdata/publish/submission-guidelines
--->
-
 David S. LeBauer 1,2 
 [Full list of authors](https://docs.google.com/spreadsheets/d/1FnaeJZ1A6r1fa3UvhfczMLKh5CWaSMErBRw4vTKgPe8/edit#gid=1569331325)
 Todd C Mockler n
