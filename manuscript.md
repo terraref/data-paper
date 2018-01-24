@@ -70,6 +70,7 @@ This work was funded by
   the Advanced Research Projects Agency-Energy (ARPA-E), U.S. Department of Energy, under Award Number DE-AR0000594; 
   the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois and is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications;
   the ROGER supercomputer, which was supported by the NSF grant number 1429699.
+  XSEDE Comet, Bridges, ECSS
   
 ### Author Contributions
  
