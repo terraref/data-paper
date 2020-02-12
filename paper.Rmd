@@ -1,0 +1,146 @@
+---
+title: "Figures and Tables"
+author: "David LeBauer"
+date: "1/27/2020"
+output: html_document
+---
+
+```{r echo=FALSE}
+# Some recommended settings. 
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.pos = 'h',
+  out.extra = "",   # To force the use of figure enviroment
+  fig.cap = "Please caption every figure"
+)
+```
+
+## Data Records
+
+[Spreadsheet w/ data descriptor tables](https://docs.google.com/spreadsheets/d/1x8RERN_ecjMvaK0NynMfdnKiuXMKPSf_zrboaSzbBGM/edit#gid=2088455634)
+
+## Experiments
+
+```{r}
+library(traits)
+library(dplyr)
+library(stringr)
+library(kableExtra)
+library(daymetr)
+library(jsonlite)
+
+
+options(betydb_url = "https://terraref.org/bety/",
+        betydb_api_version = 'v1')
+
+cultivars <- betydb_query(table = 'cultivars')
+experiments <- betydb_query(table = 'experiments')
+
+exp_subset <- experiments %>% 
+  select(name, Start = start_date, Harvest = end_date, Summary = description, Design = design) %>% 
+  filter(str_detect(name,"Season 4|Season 6")) %>% 
+  tidyr::separate(name, c('Season', 'Experiment'), sep = ":") 
+
+exp_subset %>% 
+  dplyr::arrange(Season, Experiment) %>% 
+  kableExtra::kable(format = 'html') %>% 
+  column_spec(column = 5, width = 20) %>% 
+  column_spec(column = 6, width = 20) %>% 
+  column_spec(column = 1:3, width = 5) %>% 
+    collapse_rows(columns = 1, valign = 'top') 
+
+
+
+```
+
+### Climate
+```{r}
+daymet <- daymetr::download_daymet(
+  site = "Maricopa Agricultural Center",
+  lat = 33.070,
+  lon = -111.974,
+  start = 1989,
+  end = 2018,
+  simplify = TRUE) 
+
+daymet %>% 
+  filter(str_detect(measurement, 'deg.c|prcp')) %>%
+  tidyr::pivot_wider(names_from = measurement, values_from = value) %>% 
+  group_by(year) %>% 
+  summarise(min = min(tmin..deg.c.), max = max(tmax..deg.c.), meanT = mean((tmin..deg.c. + tmax..deg.c.)/2), precip = sum(prcp..mm.day.)) %>% 
+  group_by() %>% 
+  summarise(min = mean(min), max = mean(max), meanT = mean(meanT), precip = mean(precip)) %>% 
+  kableExtra::kable(format = 'html', digits = 2)
+
+```
+
+```{r}
+library(lubridate)
+
+get_weather <- function(start_date, end_date){
+  weather <- daymetr::download_daymet(
+    site = "Maricopa Agricultural Center",
+    lat = 33.070,
+    lon = -111.974,
+    start = lubridate::year(start_date),
+    end = lubridate::year(end_date),
+    simplify = TRUE)
+  weather2 <- weather %>% 
+    tidyr::pivot_wider(names_from = measurement, values_from = value) %>% 
+    filter(yday >= yday(start_date)& yday <= yday(end_date)) 
+  res <- weather2 %>% 
+    summarise(precip = sum(prcp..mm.day.), minT = min(tmin..deg.c.), maxT = max(tmax..deg.c.), meanT = mean((tmin..deg.c. + tmax..deg.c.)/2))
+  return(res)
+}
+
+z <- list()
+for(i in 1:nrow(exp_subset)){
+  z[[i]] <- get_weather(exp_subset$Start[i], exp_subset$Harvest[i])
+}
+y <- bind_rows(z)
+
+cbind(exp_subset, y)
+```
+
+### Season 4 Managements and Treatments
+
+```{r treatments}
+
+#seasons <- fromJSON("https://terraref.org/brapi/v1/seasons")
+#studies<- fromJSON("https://terraref.org/brapi/v1/studies")
+
+experiments <- betydb_query(table = 'experiments')
+treatment_names <- betydb_query(table = 'treatments')
+treatments <- betydb_query(table = 'treatments',
+                           associations_mode = 'full_info') 
+
+%>%
+  select(treatment_id = id , name, definition, control)
+
+get_mgid <- function(trtid){
+  betydb_record(id = trtid, table = "treatments")$managements$management.id
+}
+
+managements_treatments <- treatments %>%
+  group_by(treatment_id) %>%
+  do(management_id = get_mgid(.$treatment_id)) %>% 
+  filter(!is.null(management_id)) %>%
+  unnest()
+
+managements <- betydb_query(table = 'managements') %>% 
+  filter(mgmttype %in% c('Fertilization_N', 'Planting', 'Irrigation')) %>%
+  select(management_id = id, date, mgmttype, level, units) %>% 
+  left_join(managements_treatments, by = 'management_id') %>%
+  left_join(treatments, by = 'treatment_id')
+
+planting <- managements %>%
+  filter(mgmttype == "Planting") %>%
+  select(treatment_id, planting_date = date, nrate = level)
+
+```
+
+## Season 4 Summary 
+
+```{r}
+
+```

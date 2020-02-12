@@ -1,0 +1,38 @@
+---
+title: "Methods"
+author: "David LeBauer"
+date: "2/12/2020"
+output: html_document
+---
+
+
+## Experiments
+
+```{r test, echo=FALSE}
+experiments <- betydb_query(table = 'experiments')
+
+exp_subset <- experiments %>% 
+  select(name, Start = start_date, Harvest = end_date, Summary = description, Design = design) %>% 
+  filter(str_detect(name,"Season 4|Season 6")) %>% 
+  filter(str_detect(name, "Border Plots", negate = TRUE)) %>% 
+  tidyr::separate(name, c('Season', 'Experiment'), sep = ":") 
+
+
+descriptions <- list()
+for(s in exp_subset$Season){
+  e <- exp_subset %>% filter(Season == s)
+  description <- 
+    paste("## ", e$Season, "\n\n",
+          "* Start:", e$Start, "\n",
+          "* End:", e$Harvest,"\n\n",
+          e$Summary, "\n\n",
+          "Experimental Design: ", e$Design)
+  descriptions[[e$Season]] <- description
+
+}
+
+```
+
+`r descriptions[[1]]`
+
+`r descriptions[[2]]`

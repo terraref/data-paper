@@ -1,0 +1,123 @@
+---
+title: 'Data From: TERRA REF, An Open Reference Data Set From High Resolution Genomics,
+  Phenomics, and Imaging Sensors'
+author: "David LeBauer, long list TBD"
+date: "2/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r eml-metadata}
+library(EML)
+dsl <- eml$creator(individualName = eml$individualName(givenName = "David",
+                                                       surName = "LeBauer"),
+                   organizationName = "University of Arizona",
+                   electronicMailAddress = "dlebauer@arizona.edu",
+                   userId = list(directory = "https://orcid.org",
+                                 userId    = "https://orcid.org/0000-0001-7228-053X"))
+                   
+doc <- list(packageId = "dataset-1", system = "Dryad",
+            dataset = eml$dataset(
+              title = "Data From: TERRA REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors",
+              creator = dsl,
+              contact = dsl))
+
+```
+
+## Abstract
+
+```{r abstract}
+abstract <- set_TextType("./abstract.md")
+class(abstract) <- 'abstract'
+doc$dataset$abstract <- abstract
+
+```
+
+`r abstract`
+
+## Coverage
+
+```{r location}
+library(traits)
+library(dplyr)
+library(stringr)
+# library(kableExtra)
+# library(jsonlite)
+
+
+options(betydb_url = "https://terraref.ncsa.illinois.edu/bety/",
+        betydb_api_version = 'v1')
+
+mac_field <- betydb_query(table = 'sites', sitename = '~MAC Field Scanner Field')
+library(sf)
+
+mac_bounds <- st_bbox(st_as_sfc(mac_field$geometry))
+
+sorghum <- betydb_query(table = 'species', genus = 'Sorghum')
+
+cultivars <- betydb_query(table = 'cultivars', specie_id = sorghum$id)
+
+germplasm <-   data.frame(Genus = sorghum$genus, 
+                          Species = sorghum$scientificname,
+                          Genotype = cultivars$name)
+
+doc$dataset$coverage <- set_coverage(beginDate = "2017-04-13",
+                                     endDate = "2018-08-02",
+                                     geographicDescription   = "Maricopa Agricultural Center, Maricopa, AZ",
+                                     sci_names = germplasm,
+                                     # include cultivars here?
+                                     westBoundingCoordinate  = mac_bounds['xmin'],
+                                     eastBoundingCoordinate  = mac_bounds['xmax'],
+                                     northBoundingCoordinate = mac_bounds['ymax'],
+                                     southBoundingCoordinate = mac_bounds['ymin']
+                                     #include each plot here?
+                                     )
+                                     
+                                     
+```
+
+## Methods
+
+### Experimental Design
+
+```{r experiments}
+knitr::knit("methods.Rmd", "methods.md")
+methods <- set_methods("methods.md")
+
+eml$taxonomicCoverage()
+
+```
+
+
+### Cultivars
+
+```{r}
+#cultivars <- betydb_query(table = 'cultivars', limit = 'none')
+
+```
+
+```{r}
+
+
+eml_validate(doc)
+write_eml(doc, "eml_metadata.xml")
+```
+
+
+
+## Usage Notes
+
+1. Technical Documentation
+  * website: https://docs.terraref.org/
+  * source: github.com/terraef/documentation
+  * archive: David LeBauer, Craig Willis, Rachel Shekar, Max Burnette, Ting Li, Scott Rohde, et al. 2020. “Terraref/documentation: Season 6 Data Publication (2019)”. Zenodo. doi:10.5281/zenodo.597425
+2. Tutorials: Tutorials for accessing and understanding data
+  * website: https://terraref.org/tutorials
+  * source: github.com/terraref/tutorials
+  * archive: TBD
+  * YouTube: https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw
+
