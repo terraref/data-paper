@@ -3,11 +3,14 @@ title: 'Data From: TERRA REF, An Open Reference Data Set From High Resolution Ge
   Phenomics, and Imaging Sensors'
 author: "David LeBauer, long list TBD"
 date: "2/10/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, message = FALSE)
 ```
 
 
@@ -30,14 +33,12 @@ doc <- list(packageId = "dataset-1", system = "Dryad",
 
 ## Abstract
 
-```{r abstract}
-abstract <- set_TextType("./abstract.md")
+```{r abstract, results = 'asis'}
+abstract <- EML::set_TextType("./abstract.md")
 class(abstract) <- 'abstract'
 doc$dataset$abstract <- abstract
-
+writeLines(readLines('abstract.md'))
 ```
-
-`r abstract`
 
 ## Coverage
 
@@ -50,7 +51,8 @@ library(stringr)
 
 
 options(betydb_url = "https://terraref.ncsa.illinois.edu/bety/",
-        betydb_api_version = 'v1')
+        betydb_api_version = 'v1',
+        betydb_key = readLines('~/.betykey', warn = FALSE))
 
 mac_field <- betydb_query(table = 'sites', sitename = '~MAC Field Scanner Field')
 library(sf)
@@ -59,17 +61,13 @@ mac_bounds <- st_bbox(st_as_sfc(mac_field$geometry))
 
 sorghum <- betydb_query(table = 'species', genus = 'Sorghum')
 
-cultivars <- betydb_query(table = 'cultivars', specie_id = sorghum$id)
-
-germplasm <-   data.frame(Genus = sorghum$genus, 
-                          Species = sorghum$scientificname,
-                          Genotype = cultivars$name)
+species <-   data.frame(Genus = sorghum$genus, 
+                          Species = sorghum$scientificname)
 
 doc$dataset$coverage <- set_coverage(beginDate = "2017-04-13",
                                      endDate = "2018-08-02",
                                      geographicDescription   = "Maricopa Agricultural Center, Maricopa, AZ",
-                                     sci_names = germplasm,
-                                     # include cultivars here?
+                                     sci_names = species,
                                      westBoundingCoordinate  = mac_bounds['xmin'],
                                      eastBoundingCoordinate  = mac_bounds['xmax'],
                                      northBoundingCoordinate = mac_bounds['ymax'],
@@ -84,30 +82,69 @@ doc$dataset$coverage <- set_coverage(beginDate = "2017-04-13",
 
 ### Experimental Design
 
-```{r experiments}
-knitr::knit("methods.Rmd", "methods.md")
-methods <- set_methods("methods.md")
+```{r experimental-design, results = 'asis'}
 
-eml$taxonomicCoverage()
+experiment_descriptions <- readLines('metadata/experiment_descriptions.txt')
 
+writeLines(gsub("##", "\n####", experiment_descriptions))
 ```
 
+```{r methods-eml}
+doc$dataset$methods <- EML::set_methods(
+  sampling_file = 'metadata/experiments_descriptions.txt',
+  methods_file = 'metadata/methods.csv')
+```
 
 ### Cultivars
 
-```{r}
-#cultivars <- betydb_query(table = 'cultivars', limit = 'none')
+A list of cultivars and the experiments in which they are planted are listed in the file 'germplasm.csv'. Additional attributes are listed in the files 'season_4_germplasm.json' and 'season_6_germplasm.json'.  
 
+```{r cultivars, eval=FALSE}
+readr::read_csv('metadata/germplasm.csv') %>% 
+  knitr::kable()
+```
+
+
+```{r cultivars-eml}
+# atts_shiny <- EML::shiny_attributes(readr::read_csv('data/germplasm.csv'))
+
+doc$dataset$dataTable <- eml$dataTable(
+  entityName = 'metadata/germplasm.csv',
+  entityDescription = paste0("List of Sorghum genotypes ('accessions')",
+                             "and experiments in which they were included"))
+
+#atts <- read.csv('metadata/germplasm_Attributes_Table.csv')
+#doc$dataset$dataTable$attributeList <- set_attributes(atts)
 ```
 
 ```{r}
-
-
 eml_validate(doc)
-write_eml(doc, "eml_metadata.xml")
+write_eml(doc, "metadata/eml_metadata.xml")
 ```
 
+## Sensor Derived Phenotypes
 
+The following records were generated from sensors by algorithms:
+
+```{r sensor-data}
+trait_counts <- readr::read_csv('metadata/trait_counts.csv')
+
+sensor_methods <- c("Green Canopy Cover Estimation from Field Scanner RGB images", 
+"3D scanner to 98th quantile height", "Scanner 3d ply data to height", 
+"Stereo RGB data to emergence count", "3D scanner to leaf angle distribution", 
+"3D scanner to leaf length and width", "3D scanner to panicle count faster_rcnn + roughness threshold + convex hull", "Mean temperature from infrared images")
+
+trait_counts %>% 
+  filter(method_name %in% sensor_methods) %>% 
+  arrange(desc(n)) %>% 
+  knitr::kable()
+```
+```{r manual-data-counts}
+trait_counts %>% 
+  filter(!method_name %in% sensor_methods) %>%
+  arrange(desc(n)) %>% 
+  knitr::kable()
+```
 
 ## Usage Notes
 
