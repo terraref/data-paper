@@ -1,0 +1,18 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "David LeBauer",
+  "codeRepository": "https://github.com/foo/bar",
+  "programmingLanguage": "R, Python",
+  "license": "BSD 3-Clause",
+  "description": "Lorem Ipsum Dolor",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "David",
+      "familyName": "LeBauer",
+      "email": "dlebauer@arizona.edu",
+      "id": "https://orcid.org/0000-0001-7228-053X"
+    }
+  ]
+}
