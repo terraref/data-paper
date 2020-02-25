@@ -2,13 +2,30 @@
 title: "Methods"
 author: "David LeBauer"
 date: "2/12/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
 ---
+
+```{r settings, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, message = FALSE)
+
+library(traits)
+library(dplyr)
+library(stringr)
+
+options(betydb_url = "https://terraref.ncsa.illinois.edu/bety/",
+        betydb_api_version = 'v1',
+        betydb_key = readLines('~/.betykey', warn = FALSE))
+```
 
 
 ## Experiments
 
-```{r test, echo=FALSE}
+
+
+```{r experiments, cache = FALSE}
 experiments <- betydb_query(table = 'experiments')
 
 exp_subset <- experiments %>% 
@@ -31,8 +48,105 @@ for(s in exp_subset$Season){
 
 }
 
+names(descriptions) <- NULL
+writeLines(unlist(descriptions), con = 'metadata/experiment_descriptions.txt')
 ```
 
-`r descriptions[[1]]`
+### Germplasm
 
-`r descriptions[[2]]`
+```{r germplasm}
+library(jsonlite)
+season_6 <-  betydb_query(table = 'experiments', name = 'MAC Season 6: Sorghum BAP')
+season_4 <-  betydb_query(table = 'experiments', name = 'MAC Season 4: All BAP Accessions')
+
+download.file(
+  paste0("https://brapi.workbench.terraref.org/brapi/v1/studies/",
+         season_4$id,"/germplasm"), 
+    destfile = 'metadata/season_4_germplasm.json')
+download.file(
+  paste0("https://brapi.workbench.terraref.org/brapi/v1/studies/",
+         season_6$id,"/germplasm"), 
+    destfile = 'metadata/season_6_germplasm.json')
+
+s4 <- fromJSON('metadata/season_4_germplasm.json', flatten = TRUE)$result$data %>%
+  select(germplasmName, germplasmPUI) %>% 
+  mutate(season_4 = TRUE)
+s6 <- fromJSON('metadata/season_6_germplasm.json', flatten = TRUE)$result$data %>%
+  select(germplasmName, germplasmPUI) %>% 
+  mutate(season_6 = TRUE)
+germplasm_list <- s4 %>% 
+  dplyr::full_join(s6, by = c('germplasmName', 'germplasmPUI')) 
+
+readr::write_csv(germplasm_list, 'metadata/germplasm.csv')
+
+germplasm_list %>% knitr::kable()
+```
+
+## Methods
+
+```{r methods}
+variables <- betydb_query(table = 'variables', limit = 'none')
+methods <- betydb_query(table = 'methods', limit = 'none')
+
+## join w/ s6, s4 data then re-save
+save(methods, variables, file = 'metadata/methods_variables.RData')
+
+s4 <- list()
+for (f in dir("data/season_4_traits/", full.names = TRUE, pattern = 'csv')){
+  s4[[f]] <- readr::read_csv(f)
+}
+
+s4 <- dplyr::bind_rows(s4)
+save(s4, file = 'data/s4.RData')
+
+s6 <- list()
+for (f in dir("data/season_6_traits/", full.names = TRUE, pattern = 'csv')){
+  s6[[f]] <- readr::read_csv(f)
+}
+
+s6 <- dplyr::bind_rows(s6)
+save(s6, file = 'data/s6.RData')
+
+s46 <- dplyr::bind_rows(
+  cbind(season = 4, s4), 
+  cbind(season = 6, s6))
+
+
+sensor_methods <- c("Green Canopy Cover Estimation from Field Scanner RGB images", 
+"3D scanner to 98th quantile height", "Scanner 3d ply data to height", 
+"Stereo RGB data to emergence count", "3D scanner to leaf angle distribution", 
+"3D scanner to leaf length and width", "3D scanner to panicle count faster_rcnn + roughness threshold + convex hull", "Mean temperature from infrared images")
+
+s46_subset <- s46 %>% 
+  dplyr::select(plot = sitename, lat, lon, scientificname, genotype = cultivar, season, treatment, date, time, year, month, trait, method = method_name, mean, checked, notes, author) %>% 
+  dplyr::mutate(method_type = ifelse(method %in% sensor_methods, 'sensor', 'manual'))
+
+readr::write_csv(
+  s46_subset %>% filter(season == 4), 
+  'data/season_4_traits.csv')
+
+readr::write_csv(
+  s46_subset %>% filter(season == 6), 'data/season_6_traits.csv')
+```
+
+```{r s46methods}
+library(dplyr) 
+trait_counts <- s46 %>% 
+  group_by(trait, method_name) %>% 
+  tally()
+readr::write_csv(trait_counts, 'metadata/trait_counts.csv')
+
+v <- variables %>% 
+  select(name, description, units, notes)  %>% 
+  filter(name %in% unique(s46$trait))
+
+c <- betydb_query(table = 'citations', limit = 'none') %>% 
+  select(author, year, title, journal, citation_id = id)
+m <- methods %>% 
+  left_join(c, by = 'citation_id') %>% 
+  select(name, description, author, title, year, journal)
+
+readr::write_csv(m, 'metadata/methods.csv')
+readr::write_csv(v, 'metadata/variables.csv')
+
+```
