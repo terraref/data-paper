@@ -8,3 +8,5 @@ We have an inclusive opt-in authorship policy- if you contributed and your name 
   * content will draw from TERRA REF documentation, protocols, and algorithm descriptions
 * templates, tables, and authorship documents are on [Google Drive](https://drive.google.com/drive/u/0/folders/0By_PDCcY5g2JVkEzWHJUaXZWSW8)
 * Journal Submission instructions https://www.nature.com/sdata/publish/submission-guidelines
+
+## Contents

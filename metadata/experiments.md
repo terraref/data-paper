@@ -4,11 +4,13 @@
  * Start: 2017-04-13 
  * End: 2017-09-21 
 
+ Treatments:  
+
  Biomass Association Panel (BAP), 350 accessions in 2 replicates constrained by 3 height blocks.  
 
 The Biomass Association Panel is described by Brenton, ZW et al.  2016.  A genomic resource for the development, improvement, and exploitation of sorghum for bioenergy.  Genetics 204: 21-33. 
 
-A late season drought experiment along drip lines was established as part of the field campaigns in the latter part of season 4. This was not a pre-planned drought study, and only temporary water limited zones for the field campaign. There were two treatments. Irrigation was turned off during the first two weeks of August in the first treatment and irrigation was turned off during the second two weeks of August in the second treatment. 
+A late season drought experiment along drip lines was established as part of the field campaigns in the latter part of season 4. This was not a pre-planned drought study, and only temporary water limited zones for the field campaign. There were two treatments. Irrigation was turned off during the first two weeks of August in the first treatment and irrigation was turned off during the second two weeks of August in the second treatment. Additional discussion can be found in https://github.com/terraref/reference-data/issues/196. 
 
  Experimental Design:  BAP experiment with 350 accessions in 2 replicate two-row plots. Plots were 152.4 cm wide (2-rows, row width of 76.2 cm) and 3.385 meters long with 0.6 meter alley-way (total 3.985 meters long for each plot).
 	
@@ -24,11 +26,15 @@ Drought Treatments:
 * no irrigation Aug 15-30 in Cols 1, 2, 3, 4, 9, 10, and 11
  
 
+ Treatments:  * *MAC Season 4: BAP water-deficit stress Aug 15-30*: Between Aug 15-30, experimental plots in Cols 2, 3, 4, 9, 10, 11 and border plots in Col 1 were established as water-deficit blocks with no irrigation (by capping drip lines).
+* *MAC Season 4: BAP water-deficit stress Aug 1-14*: Between Aug 1-14, experimental plots in Cols 5, 6, 7, 8, 12, 13, 14, 15 and border plots in Col 16 were established as water-deficit blocks with no irrigation (by capping drip lines).
 
 ####  MAC Season 6 
 
  * Start: 2018-04-20 
  * End: 2018-08-02 
+
+ Treatment:  
 
  Biomass Association Panel (BAP), 336 accessions in 2 replicates (constrained by 2 height blocks) in ranges 4-51.  Ranges 3 and 52 planted primarily as uniform sections of SP1615 plus check plots for observation.  The Biomass Association Panel is described by Brenton, ZW et al. 2016. A genomic resource for the development, improvement, and exploitation of sorghum for bioenergy. Genetics 204: 21-33. 
 
@@ -36,3 +42,4 @@ Drought Treatments:
 	
 Experiment was arranged in two replicates (blocks) as a row-column design with a further constraint that lines (accessions) are blocked by height class. This blocking is applied across ranges. In specifying a model for analysis, lines (accessions) are nested within height/stature classes.  See also the following reference for description of row-column designs:  Piepho, HP et al. 2015.  Beyond Latin Squares: A brief tour of row-column designs.  Agronomy Journal 107: 2263-2270. 
 
+ Treatment:  * *MAC Season 6: Sorghum*: Standard breeding trial, no experimental treatments were applied.

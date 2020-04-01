@@ -1,0 +1,4147 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="David LeBauer, long list TBD" />
+
+
+<title>Data From: TERRA REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors</title>
+
+<script src="Dryad-README_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="Dryad-README_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="Dryad-README_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="Dryad-README_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="Dryad-README_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="Dryad-README_files/navigation-1.1/tabsets.js"></script>
+<link href="Dryad-README_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="Dryad-README_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data From: TERRA REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors</h1>
+<h4 class="author">David LeBauer, long list TBD</h4>
+<h4 class="date">2/10/2020</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#useage-notes">Useage Notes</a><ul>
+<li><a href="#archive-contents">Archive Contents</a><ul>
+<li><a href="#code">Code</a></li>
+<li><a href="#data">Data</a></li>
+<li><a href="#meta-data">Meta-data</a></li>
+</ul></li>
+<li><a href="#software-and-cloud-data">Software and cloud data</a></li>
+<li><a href="#trait-data">Trait Data</a></li>
+<li><a href="#unpublished-data-and-future-releases">Unpublished data and future releases</a></li>
+</ul></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#experimental-design">Experimental Design</a></li>
+<li><a href="#germplasm">Germplasm</a></li>
+<li><a href="#list-of-phenotypes-and-how-they-were-measured">List of Phenotypes and How They Were Measured</a></li>
+</ul></li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#mac-season-4-bap-water-deficit-stress-aug-1-14">MAC Season 4: BAP water-deficit stress Aug 1-14</a></li>
+<li><a href="#mac-season-4-bap-water-deficit-stress-aug-15-30">MAC Season 4: BAP water-deficit stress Aug 15-30</a></li>
+<li><a href="#mac-season-6-sorghum">MAC Season 6: Sorghum</a></li>
+<li><a href="#methods-1">Methods:</a></li>
+</ul></li>
+<li><a href="#germplasm-1">Germplasm</a></li>
+<li><a href="#phenotypes-1">Phenotypes</a><ul>
+<li><a href="#summary-of-available-phenotypes">Summary of Available Phenotypes</a><ul>
+<li><a href="#plot-level-phenotype-data">Plot level phenotype data</a></li>
+</ul></li>
+<li><a href="#sensor-derived-phenotypes">Sensor Derived Phenotypes</a></li>
+</ul></li>
+<li><a href="#weather">Weather</a><ul>
+<li><a href="#geostreams-weather">Geostreams Weather</a><ul>
+<li><a href="#environment-logger">Environment Logger</a></li>
+</ul></li>
+<li><a href="#az-met-weather-brown-et-al-1996">AZ Met weather (Brown et al 1996)</a></li>
+</ul></li>
+</ul>
+</div>
+
+<!--chapter:end:index.Rmd-->
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>The ARPA-E funded TERRA REF project generating open access reference datasets for the study of plant sensing, genomics, and phenomics. Sensor data are generated by a field scanner sensing platform that captures color, thermal, hyperspectral, and active flourescence imagery as well as three dimensional structure and associated environmental measurements. These data are provided alongside traditional field methods to support calibration and validation of algorithms used to extract plot level phenotypes from these datasets.</p>
+<p>Data were collected at a field site in Maricopa, AZ that hosts a large field scanner with fifteen sensors, many of which are capable of capturing mm scale images and point clouds at daily to weekly intervals.</p>
+<p>These data are intended to be reused, and are accessible as a combination of files and databases linked by spatial, temporal, and genomic information. In addition to providing open access data, the entire computational pipeline is open source, and we enable users to access high performance computing environments.</p>
+<p>Data Types:</p>
+<ol style="list-style-type: decimal">
+<li>Genomic: including at least 400 novel sequences and outputs from GWAS and related analyses. Contains raw and derived sorghum genome sequencing data. Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.</li>
+<li>Sensor: 5 remote thermal, light, and shape sensors scanning a 4000 m2 field at 1 mm2 resolution at hourly to weekly intervals</li>
+<li>Phenotypes: Included both sensor derived and standard field measurements required to validate and calibrate algorithms that compute plant phenotypes from remote sensing data.</li>
+<li>Environmental data: Time series of meteorological variables including temperature, relative humidity, precipitation, wind direction and speed, photosynthetically active radiation, and downwelling spectral radiance.</li>
+</ol>
+<p>The study has evaluated a sorghum diversity panel, biparental cross populations, and elite lines and hybrids from structured breeding populations as well as a durum wheat diversity panel. This reference dataset can be used to characterize phenotype-to-genotype associations, on a genomic scale, that will enable knowledge-driven breeding and the development of higher-yielding cultivars of sorghum and wheat. The data is also being used to develop new algorithms for machine learning, image analysis, genomics, and optical sensor engineering.</p>
+<!--chapter:end:abstract.md-->
+</div>
+<div id="useage-notes" class="section level1">
+<h1>Useage Notes</h1>
+<div id="archive-contents" class="section level2">
+<h2>Archive Contents</h2>
+<div id="code" class="section level3">
+<h3>Code</h3>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>This is a summary of the data available in this archive, and how to access it:</p>
+<div id="file-manifests" class="section level4">
+<h4>File Manifests</h4>
+<p>These are json files that list the files and their contents that are not included in this repository. We follow a XYZ standard.</p>
+</div>
+<div id="phenotypes" class="section level4">
+<h4>Phenotypes</h4>
+<pre class="sh"><code>cd data
+zip season_4_traits.zip data/season_4_traits/ &amp;&amp; 
+zip data/season_6_traits.zip data/season_6_traits/
+
+## sync to google drive on my local computer
+cp -r season_*_traits.zip ~/Google\ Drive\ File\ Stream/My\ Drive/TERRA-REF/Publications\ and\ Authorship\ /LeBauer\ et\ al\ data\ descriptor/Dryad\ Content/data/</code></pre>
+</div>
+</div>
+<div id="meta-data" class="section level3">
+<h3>Meta-data</h3>
+<p>/metadata folder * eml_metadata.xml Annotation using Ecological Metadata Language</p>
+<p>data</p>
+</div>
+</div>
+<div id="software-and-cloud-data" class="section level2">
+<h2>Software and cloud data</h2>
+<p>Because of their size, only the sensor data products are not included in this repository.</p>
+<p>Using cloud services is described extensively in the TERRA REF documentation: * website: <a href="https://docs.terraref.org/" class="uri">https://docs.terraref.org/</a> * source: github.com/terraef/documentation * archive: David LeBauer, Craig Willis, Rachel Shekar, Max Burnette, Ting Li, Scott Rohde, et al. 2020. “Terraref/documentation: Season 6 Data Publication (2019)”. Zenodo. <a href="doi:10.5281/zenodo.597425" class="uri">doi:10.5281/zenodo.597425</a></p>
+<p>Hands-on examples for accessing many datasets are provided in the tutorials: Tutorials for accessing and understanding data * website: <a href="https://terraref.org/tutorials" class="uri">https://terraref.org/tutorials</a> * source: github.com/terraref/tutorials * archive: TBD * YouTube: <a href="https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw" class="uri">https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw</a></p>
+<p>In addition, the GitHub repository for the TERRA REF data publication and data paper contains extensive code used to download archived copies of the data.</p>
+</div>
+<div id="trait-data" class="section level2">
+<h2>Trait Data</h2>
+<p>Trait data is available as csv files in this repository. You can also access the entire database at terraref.org/bety through the API, or you can run a copy of the database on your own computer if you have the freely available cross-platform Docker software. This is described in the TERRA REF documentation and tutorials.</p>
+</div>
+<div id="unpublished-data-and-future-releases" class="section level2">
+<h2>Unpublished data and future releases</h2>
+<p><em>Insert table of seasons and comments here</em></p>
+<!--chapter:end:useage_notes.md-->
+</div>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<div id="experimental-design" class="section level2">
+<h2>Experimental Design</h2>
+<p>The first data release contains data from two Sorghum growing seasons, the 4th and 6th seasons of the project:</p>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="germplasm" class="section level2">
+<h2>Germplasm</h2>
+<p>Here we use the terms ‘germplasm’, ‘cultivars’, and ‘accessions’ to refer to the distinct plant genotypes that are the key unit of experimental investigations in breeding trials.</p>
+</div>
+<div id="list-of-phenotypes-and-how-they-were-measured" class="section level2">
+<h2>List of Phenotypes and How They Were Measured</h2>
+<p>Some were measured by sensor, and others were measured by hand.</p>
+<!--chapter:end:methods.Rmd-->
+</div>
+</div>
+<div id="appendix" class="section level1">
+<h1>Appendix</h1>
+<!--chapter:end:appendix.Rmd-->
+<div id="mac-season-4-bap-water-deficit-stress-aug-1-14" class="section level3">
+<h3>MAC Season 4: BAP water-deficit stress Aug 1-14</h3>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="3%" />
+<col width="0%" />
+<col width="0%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">date</th>
+<th align="left">activity</th>
+<th align="left">level</th>
+<th align="left">units</th>
+<th align="left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2017-04-10</td>
+<td align="left">tillage</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Field ripped and tilled.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-04-11</td>
+<td align="left">tillage</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Field leveled.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-04-13</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Pre-plant Nitrogen fertilizer incorporated in the field, at 100 lbs N/A as urea.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-04-20</td>
+<td align="left">planting (plants / m2)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Field planted with Kincaid planter, 5 cm seed spacing (planned for thinning after seedling emergence). Planted plot length 3.5 m with 0.5 m alley length, 2-row plots spaced at 76.2 cm. Seed depth 3.18 cm.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-04-21</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">First sprinkler irrigation after planting</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-04</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Final sprinkler irrigation to facilitate seedling emergence. All subsequent irrigation implemented by sub-surface drip system.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-10</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plant thinning in Ranges 3-10. Seedlings removed to approximately 14 cm spacing between plants for a final plant stand count of 50 to 56 plants per plot.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-11</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plant thinning, Ranges 11-32. Seedlings removed to approximately 14 cm spacing between plants for a final plant stand count of 50 to 56 plants per plot.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-12</td>
+<td align="left">pesticide</td>
+<td align="left">4.5</td>
+<td align="left">oz/ac</td>
+<td align="left">Coragen (active ingredient Chlortraniliprole) injected into subsurface drip system in the afternoon, approximately 2:00 PM. Applied at rate 4.5 oz/ac, for total of approximately 6 oz.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-12</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plant thinning, Ranges 33-52. Seedlings removed to approximately 14 cm spacing between plants for a final plant stand count of 50 to 56 plants per plot.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-15</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Mechanical cultivation between rows to control weeds</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-18</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manual weed removal by hoe, east half of field</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-19</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manual weed removal by hoe, west half of field</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-26</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manual weed removal by hand, within plant rows</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-06-11</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Liquid UAN (nitrogen) added through drip irrigation system at rate of 28 kg/ha</td>
+</tr>
+<tr class="even">
+<td align="left">2017-06-22</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Liquid UAN (nitrogen) added through drip irrigation system at rate of 28 kg/ha</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-07-18</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Liquid UAN (nitrogen) added through drip irrigation system at rate of 28 kg/ha</td>
+</tr>
+<tr class="even">
+<td align="left">2017-08-01</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Water-deficit and well-watered treatment blocks established by capping the drip lines within the water-deficit treatment area so that these plots receive no water at all during irrigation events, while plots within the well-watered treatment area continue to be irrigated by their associated drip lines. Experimental plots within Columns 5, 6, 7, 8, 12, 13, 14, and 15 were established as water-deficit blocks with restricted irrigation. Experimental plots within Columns 2, 3, 4, 9, 10, and 11 remained under full irrigation as well-watered blocks. Border Column 1 remained under full irrigation and Border Column 16 was included as part of the water-deficit block with restricted irrigation.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-08-15</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Water-deficit and well-watered treatments blocks reversed by capping the drip lines that were previously open and un-capping those that were previously capped. Starting with the irrigation overnight between August 14 and 15, the new water-deficit treatment blocks included experimental plots in Columns 2, 3, 4, 9, 10, and 11. Experimental plots in Columns 5, 6, 7, 8, 12, 13, 14, and 15 were included in well-watered blocks to allow recovery from the previous water-deficit stress. Border Column 1 included with the new water-deficit treatment blocks with restricted irrigation and Border Column 16 returned to full irrigation with the well-watered blocks.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-08-30</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Irrigation terminated across whole field to allow ground to dry in preparation for harvest equipment field access</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-09-11</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">First day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+<tr class="even">
+<td align="left">2017-09-12</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Second day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-09-15</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Third day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+<tr class="even">
+<td align="left">2017-09-16</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Fourth and final day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mac-season-4-bap-water-deficit-stress-aug-15-30" class="section level3">
+<h3>MAC Season 4: BAP water-deficit stress Aug 15-30</h3>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="3%" />
+<col width="0%" />
+<col width="0%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">date</th>
+<th align="left">activity</th>
+<th align="left">level</th>
+<th align="left">units</th>
+<th align="left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2017-04-10</td>
+<td align="left">tillage</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Field ripped and tilled.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-04-11</td>
+<td align="left">tillage</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Field leveled.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-04-13</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Pre-plant Nitrogen fertilizer incorporated in the field, at 100 lbs N/A as urea.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-04-20</td>
+<td align="left">planting (plants / m2)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Field planted with Kincaid planter, 5 cm seed spacing (planned for thinning after seedling emergence). Planted plot length 3.5 m with 0.5 m alley length, 2-row plots spaced at 76.2 cm. Seed depth 3.18 cm.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-04-21</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">First sprinkler irrigation after planting</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-04</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Final sprinkler irrigation to facilitate seedling emergence. All subsequent irrigation implemented by sub-surface drip system.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-10</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plant thinning in Ranges 3-10. Seedlings removed to approximately 14 cm spacing between plants for a final plant stand count of 50 to 56 plants per plot.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-11</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plant thinning, Ranges 11-32. Seedlings removed to approximately 14 cm spacing between plants for a final plant stand count of 50 to 56 plants per plot.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-12</td>
+<td align="left">pesticide</td>
+<td align="left">4.5</td>
+<td align="left">oz/ac</td>
+<td align="left">Coragen (active ingredient Chlortraniliprole) injected into subsurface drip system in the afternoon, approximately 2:00 PM. Applied at rate 4.5 oz/ac, for total of approximately 6 oz.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-12</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plant thinning, Ranges 33-52. Seedlings removed to approximately 14 cm spacing between plants for a final plant stand count of 50 to 56 plants per plot.</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-15</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Mechanical cultivation between rows to control weeds</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-18</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manual weed removal by hoe, east half of field</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-19</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manual weed removal by hoe, west half of field</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-26</td>
+<td align="left">cultivated</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Manual weed removal by hand, within plant rows</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-06-11</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Liquid UAN (nitrogen) added through drip irrigation system at rate of 28 kg/ha</td>
+</tr>
+<tr class="even">
+<td align="left">2017-06-22</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Liquid UAN (nitrogen) added through drip irrigation system at rate of 28 kg/ha</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-07-18</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Liquid UAN (nitrogen) added through drip irrigation system at rate of 28 kg/ha</td>
+</tr>
+<tr class="even">
+<td align="left">2017-07-30</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Final full-field irrigation prior to starting water-deficit treatment in portion of field</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-08-01</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Water-deficit and well-watered treatment blocks established by capping the drip lines within the water-deficit treatment area so that these plots receive no water at all during irrigation events, while plots within the well-watered treatment area continue to be irrigated by their associated drip lines. Experimental plots within Columns 5, 6, 7, 8, 12, 13, 14, and 15 were established as water-deficit blocks with restricted irrigation. Experimental plots within Columns 2, 3, 4, 9, 10, and 11 remained under full irrigation as well-watered blocks. Border Column 1 remained under full irrigation and Border Column 16 was included as part of the water-deficit block with restricted irrigation.</td>
+</tr>
+<tr class="even">
+<td align="left">2017-08-30</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Irrigation terminated across whole field to allow ground to dry in preparation for harvest equipment field access</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-09-11</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">First day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+<tr class="even">
+<td align="left">2017-09-12</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Second day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-09-15</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Third day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+<tr class="even">
+<td align="left">2017-09-16</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Fourth and final day of mechanical harvest for green-chop biomass yield estimates, using Kemper small-plot harvester and customized Carter weigh-wagon</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mac-season-6-sorghum" class="section level3">
+<h3>MAC Season 6: Sorghum</h3>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="7%" />
+<col width="2%" />
+<col width="2%" />
+<col width="84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">date</th>
+<th align="left">activity</th>
+<th align="left">level</th>
+<th align="left">units</th>
+<th align="left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2018-04-25</td>
+<td align="left">planting (plants / m2)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Sorghum BAP experiment planted: 336 accessions randomized in a row-column experimental design in two replicate blocks plus two uniformity ranges of 14 plots at each end of the field, for a total of 700 experimental 2-row plots.</td>
+</tr>
+<tr class="even">
+<td align="left">2018-04-26</td>
+<td align="left">other</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Soil moisture probe arrays installed at depths of 1 cm, 10 cm, and 50 cm in the seed row and between seed rows at 3 locations (middle of short axis at ranges 20, 28, and 38) for continuous data logging throughout the season.</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-04-26</td>
+<td align="left">irrigation</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">First sprinkler irrigation event after planting, started approx 17:00 going into the night hours to irrigate approximately 2.5 cm of water.</td>
+</tr>
+<tr class="even">
+<td align="left">2018-05-16</td>
+<td align="left">thinning</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Plants were thinned lightly in all experimental plots to a spacing of 1 plant per 7 cm when possible.</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-05-21</td>
+<td align="left">pesticide</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ground-vehicle spray application of insecticide for treatment of Lepidopteran pests, especially Lesser Cornstalk Borer. Belt SC (active ingredient Flubendiamide) applied at rate 0.029 Liters/Hectare (4 oz/acre), dilution per 100 gal = 20 oz.</td>
+</tr>
+<tr class="even">
+<td align="left">2018-06-15</td>
+<td align="left">fertilizer_N</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Nitrogen applied by fertigation through the drip system at rate of 28 kg/ha.</td>
+</tr>
+<tr class="odd">
+<td align="left">2018-07-31</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">First day of two-day harvest for total above-ground biomass, using a Kemper harvester chopper and attached Carter weigh wagon. Subsamples were collected for estimates of moisture content.</td>
+</tr>
+<tr class="even">
+<td align="left">2018-08-01</td>
+<td align="left">harvest</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Second day of two-day harvest for total above-ground biomass, using a Kemper harvester chopper and attached Carter weigh wagon. Subsamples were collected for estimates of moisture content.</td>
+</tr>
+</tbody>
+</table>
+<!--chapter:end:treatments.md-->
+</div>
+<div id="methods-1" class="section level3">
+<h3>Methods:</h3>
+<p><strong>Manual canopy height</strong> * citation: Newcomb, Maria 2016 Field measurements from Maricopa Agricultural Center<br />
+* total observations: 461 * description: Canopy height estimates for each single row of 2-row plots. Measured in cm using meter stick, taken at the height representing the plot ‘potential’, ignoring stunted plants. The canopy height was measured as the height of the foliage (not the inflorescence) at the general top of the canopy where the upper leaves bend and/or establish a canopy surface that would support a very light horizontal object (imagining a light sheet of rigid plastic foam), discounting rare or exceptional leaves in the upper-most 2 or 3 percentile. * associated variable(s): canopy_height</p>
+<p><strong>Green Canopy Cover Estimation from Field Scanner RGB images</strong> * citation: Pless, Robert 2016 High Throughput Phenotyping Algorithms<br />
+* total observations: 461 * description:<br />
+* associated variable(s): canopy_cover</p>
+<p><strong>Canopy cover estimation from ground-based conventional photographs</strong> * citation: Newcomb, Maria 2017 Maricopa Agricultural Center Field Measurements and Activities<br />
+* total observations: 461 * description: This protocol describes a method for estimating canopy cover from photos obtained using conventional digital camera mounted on a custom-designed A-frame support. The images are processed with ImageJ to obtain an estimate of canopy cover. The protocol steps and ImageJ settings and macro are described in the protocols.io open repository within the TERRA-REF group documents. See the following link:<br />
+<a href="https://www.protocols.io/private/62a12dab1aa66fbec0e2c02cfcec52cd" class="uri">https://www.protocols.io/private/62a12dab1aa66fbec0e2c02cfcec52cd</a>​<br />
+* associated variable(s): canopy_cover</p>
+<p><strong>Scanner 3d ply data to height</strong> * citation: Zongyang, Li 2016 Maricopa Field Station Data and Metadata unpublished * total observations: 461 * description: height Estimation from 3D Scanner using formula: [hand height] = [(35th percentile from E + 35th percentile from W) / 2] cm * 0.97841 + 25.678cm. * associated variable(s): canopy_height</p>
+<p><strong>Visual classification of sorghum growth stages to determine estimates of developmental timing</strong> * citation: Newcomb, Maria 2016 Field measurements from Maricopa Agricultural Center<br />
+* total observations: 461 * description: Sorghum growth stage descriptions follow Vanderlip RL. 1993. How a sorghum plant develops. Manhattan, KS, USA: Kansas State University Cooperative Extension. Growth stages grouped by the following categories: vegetative growth prior to flag leaf emergence; flag leaf emergence; heading; flowering (anthesis); milk stage; soft dough stage; and hard dough stage. The first date of each growth stage recorded by plot based on observations made in the field at intervals that varied from 3 to 7 days, more frequently during the early season with warmer temperatures and less frequently later season when temperatures decreased. The time between sowing and the first date of each growth stage was calculated to determine the following plant variables: flag_leaf_emergence_time; heading_time; flowering_time; grain_milk_stage_time; grain_soft_dough_stage_time; grain_hard_dough_stage time</p>
+<ul>
+<li>associated variable(s): c(“flag_leaf_emergence_time”, “flowering_time”, “grain_stage_time”)</li>
+</ul>
+<p><strong>Leaf surface temperature and stomatal conductance estimates using hand-held instruments</strong> * citation: Newcomb, Maria 2017 Maricopa Agricultural Center Field Measurements and Activities<br />
+* total observations: 461 * description: Repeat measurements were taken using hand-held instruments to estimate leaf surface temperatures and leaf stomatal conductance within 6-8 select plots (3-4 accessions x 2 replicates) on 7 dates in mid to late June 2017 (sorghum season 4) as part of a focused field phenotyping campaign related to stomatal regulation. Leaf surface temperatures were estimated using a FLIR TG167 Spot Thermal Camera (<a href="http://www.flir.com/instruments/tg167/" class="uri">http://www.flir.com/instruments/tg167/</a>) and an Apogee Infrared Radiometer Model MI-230 (<a href="https://www.apogeeinstruments.com/ultra-narrow-field-of-view-infrared-radiometer-with-handheld-meter-mi-230/" class="uri">https://www.apogeeinstruments.com/ultra-narrow-field-of-view-infrared-radiometer-with-handheld-meter-mi-230/</a>). Measurements were taken on sunlit leaves, targeting fully expanded when possible, at a distance of approximately 20 to 40 cm above the leaf surface. Within each plot and at each measurement time, 6 total measurements were taken using the FLIR and Apogee instruments, with 3 measurements taken in each of the West and East subplot rows. Leaf stomatal conductance was measured using a Decagon SC-1 Porometer (<a href="https://www.decagon.com/en/canopy/canopy-measurements/sc-1-leaf-porometer-stomatal-conductance-measurements/" class="uri">https://www.decagon.com/en/canopy/canopy-measurements/sc-1-leaf-porometer-stomatal-conductance-measurements/</a>). Within each plot and at each measurement time, 5 total measurements were taken using the porometer, on sunlit leaves targeting fully expanded leaves when possible. On each of the 7 dates when measurements were taken, early morning baseline equilibrium readings starting at 5:45 to 6:00 for one cycle through all 8 plots. Mid-day readings started at roughly 11:00 and continued through 3 repeat cycles of the 6-8 plots until roughly 15:00 to 16:00. The porometer was calibrated at least once in the early morning and again before the mid-day readings. The FLIR TG167 spot camera was tested against a thermal blackbody unit on 2017-06-21 (recorded 5 readings at 34.5 to 34.6 C while the thermal blackbody recorded 33.9 C). During the later measurement dates, 2 plots were dropped from the repeat measurement cycles because they had grown out of reach for hand measurements.<br />
+* associated variable(s): leaf_stomatal_conductance</p>
+<p><strong>Mean temperature from infrared images</strong> * citation: Zongyang, Li 2016 Maricopa Field Station Data and Metadata unpublished * total observations: 461 * description: Clip individual or stitched thermal image to bounding box; compute mean temperature.</p>
+<p>Computed by <a href="https://github.com/terraref/extractors-multispectral/tree/master/meantemp" class="uri">https://github.com/terraref/extractors-multispectral/tree/master/meantemp</a> or similar algorithm.<br />
+* associated variable(s): surface_temperature</p>
+<p><strong>Whole above ground biomass at harvest</strong> * citation:<br />
+* total observations: 461 * description: The whole above ground biomass expressed on dry matter (field) basis that was harvested per unit area. * associated variable(s): aboveground_dry_biomass</p>
+<p><strong>Whole above ground biomass moisture content</strong> * citation:<br />
+* total observations: 461 * description: CO_324:0000564 Whole above ground biomass moisture content. * associated variable(s): aboveground_biomass_moisture</p>
+<p><strong>Planter seed drop count</strong> * citation:<br />
+* total observations: 461 * description: From planter file recorded by Kincaid precision planter laser counter and associated planter software. Planted length of each subplot row approximately 3.5 meters. * associated variable(s): planter_seed_drop</p>
+<p><strong>Aboveground fresh biomass at harvest</strong> * citation:<br />
+* total observations: 461 * description: The whole above ground biomass expressed fresh (field) basis that was harvested per unit area. * associated variable(s): aboveground_fresh_biomass</p>
+<p><strong>Seedling emergence rate count</strong> * citation:<br />
+* total observations: 461 * description: Ratio of the number of seedlings emerged to the number of seeds dropped by planter during planting. Emerged seedlings counted manually by subplot row. Seed drop counts recorded by Kincaid precision planter laser counter during planting. Planted length of each subplot row approximately 3.5 meters. * associated variable(s): seedling_emergence_rate</p>
+<p><strong>MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters</strong> * citation: Newcomb, Maria 2017 Maricopa Agricultural Center Field Measurements and Activities<br />
+* total observations: 461 * description: Measurements of multiple photynthesis-related parameters were taken on sunlit leaves in the upper canopy using the handheld MultispeQ v1.0 instrument and the Leaf Photosynthesis protocol macro code developed by PhotosynQ Admin. (<a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a>) Measurements made during August 2017 in the BAP experiment required a ladder to access leaves in the upper canopy. Repeat measurements were taken on select plots between approximately 10:30 and 14:30, typically cycling through 8 plots (4 accessions x 2 reps) several times to establish a time series of the parameters centered around solar noon. At each sampling time for each plot, 6 subsample measurements were taken within the plot. During August 2017 irrigation treatments were implemented at two levels (water-deficit zones with no irrigation and well-watered zones irrigated for optimal plant water status). Plots were selected for measurements within each of the two irrigation treatments.<br />
+* associated variable(s): c(“absorbance_420”, “absorbance_530”, “absorbance_605”, “absorbance_650”, “absorbance_730”, “absorbance_850”, “absorbance_880”, “absorbance_940”, “ambient_humidity”, “ECSt”, “FmPrime”, “FoPrime”, “Fs”, “FvP/FmP”, “gH+”, “leaf_angle_clamp_position”, “leaf_temperature_differential”, “leaf_thickness”, “LEF”, “light_intensity_PAR”, “NPQt”, “Phi2”, “PhiNO”, “PhiNPQ”, “pitch”, “proximal_air_temperature”, “qL”, “qP”, “relative_chlorophyll”, “RFd”, “roll”, “SPAD_420”, “SPAD_530”, “SPAD_605”, “SPAD_650”, “SPAD_730”, “SPAD_850”, “SPAD_880”, “vH+”)</p>
+<p><strong>3D scanner to 98th quantile height</strong> * citation: Zongyang, Li 2018 Maricopa Field Station Data and Metadata<br />
+* total observations: 461 * description: Using point cloud file from laser scanner and generates plot-level canopy height estimation(98th quantile) traits * associated variable(s): canopy_height</p>
+<p><strong>3D scanner to leaf angle distribution</strong> * citation: Zongyang, Li 2018 Maricopa Field Station Data and Metadata<br />
+* total observations: 461 * description: Using 3d data from laser scanner to compute leaf normal orientation and then leads to leaf angle distribution. At last we generate leaf angle mean and variance, two-parameter beta distribution and chi-parameter as our ‘single value traits’ * associated variable(s): c(“leaf_angle_alpha”, “leaf_angle_beta”, “leaf_angle_chi”, “leaf_angle_mean”)</p>
+<p><strong>3D scanner to leaf length and width</strong> * citation: Zeyu Zhang 2019 Maricopa Field Station Data and Metadata<br />
+* total observations: 461 * description: Using the connected component and heuristic search to find leaf. Then find the shortest path as the leaf length and the longest perpendicular path as width * associated variable(s): c(“leaf_length”, “leaf_width”)</p>
+<p><strong>3D scanner to panicle count faster_rcnn + roughness threshold + convex hull</strong> * citation: Zongyang, Li 2018 Maricopa Field Station Data and Metadata<br />
+* total observations: 461 * description: Using 3d data from laser scanner, use faster rcnn do object(panicle) detection. Then use panicle bounding boxes, generates counting, convex hull volume/area of panicles per plot. * associated variable(s): c(“panicle_count”, “panicle_surface_area”, “panicle_volume”)</p>
+<p><strong>Visual assessment of leaf dessication</strong> * citation:<br />
+* total observations: 461 * description: Leaves were visually scored for the presence (1) or absence (0) of leaf dessication in the plot as judged by a trained indiviudal. Desication was considered tan to dark nectrotic tissue on a fullly emerged leaf. * associated variable(s): leaf_desiccation_present</p>
+<p><strong>plant emergence counts</strong> * citation:<br />
+* total observations: 461 * description: The number of plants per plot or subplot were counted during emergence by visual assessment on multiple dates early in the season. The number of plants with &gt;= 1 centimeter of green tissue above ground surface were counted.<br />
+* associated variable(s): emergence_count</p>
+<p><strong>Plant lodging incidence - Presence estimation</strong> * citation:<br />
+* total observations: 461 * description: Plots were scored for lodging as assessed by main stalk leaning at an angle greater than 30 degrees from vertical. Scored as a binary trait. * associated variable(s): lodging_present</p>
+<p><strong>Plant basal tiller number - Counting</strong> * citation:<br />
+* total observations: 461 * description: Plants were demarcated in the field with a stake for repeated measurements over time. Basal tiller number was counted as the number of tillers with a fully emerged leaf. Sorghum Crop Ontology Identifier CO_324:0000344 <a href="http://www.cropontology.org/terms/CO_324:0000344/Plant%20basal%20tiller%20number%20-%20Counting/static-html?language=english" class="uri">http://www.cropontology.org/terms/CO_324:0000344/Plant%20basal%20tiller%20number%20-%20Counting/static-html?language=english</a> * associated variable(s): plant_basal_tiller_number</p>
+<p><strong>temperature of sunlit leaf with [instrument name]</strong> * citation:<br />
+* total observations: 461 * description: Leaf surface temperature estimates of an individual pseudo-randomly selected sunlit leaf in the upper canopy, targeting fully expanded leaves when possible, using hand-held instruments. Typically 6 sub-sample measurements were taken within a plot, 3 of which were taken in each of the West and East subplot rows. * associated variable(s): leaf_temperature</p>
+<p><strong>Panicle height measurement</strong> * citation:<br />
+* total observations: 461 * description: Distance from soil to the top of the panicle (inflorescence) measured at the same time as canopy height. This is a visual estimate of the general top of panicles (vs top of the foliar canopy) for plots in which panicles had emerged, one estimate for each row of a 2-row plot. * associated variable(s): panicle_height</p>
+<p><strong>Seedling number - Counting</strong> * citation:<br />
+* total observations: 461 * description: Sorghum Crop Ontology Identifier CO_324:0000176 <a href="http://www.cropontology.org/terms/CO_324:0000176/Seedling%20number%20-%20Counting/static-html?language=english" class="uri">http://www.cropontology.org/terms/CO_324:0000176/Seedling%20number%20-%20Counting/static-html?language=english</a> * associated variable(s): stand_count</p>
+<p><strong>Biomass oven drying</strong> * citation:<br />
+* total observations: 461 * description: After harvest, dry biomass in oven to constant weight. Then weigh the dry biomass and calculate moisture content and dry matter content as a fraction. * associated variable(s): dry_matter_fraction</p>
+<p><strong>Visual assessment of lodging at harvest on scale of 0, 1, or 2.</strong> * citation:<br />
+* total observations: 461 * description: Rapid visual assessment at the time of harvest. Some of the lodging observed at harvest may have occurred during the time after irrigation was terminated to allow the ground to dry for harvest equipment access.<br />
+* associated variable(s): harvest_lodging_rating</p>
+<p><strong>MAC leaf width measurement</strong> * citation:<br />
+* total observations: 461 * description: Use barcode scanning ruler to measure the widest part of the leaf. * associated variable(s): leaf_width</p>
+<p><strong>MAC leaf length measurement</strong> * citation:<br />
+* total observations: 461 * description: Measure from leaf tip to stem along the midrib. * associated variable(s): leaf_length</p>
+<p><strong>Stalk diameter measurement</strong> * citation: Newcomb, Maria 2017 Maricopa Agricultural Center Field Measurements and Activities<br />
+* total observations: 461 * description: Stalk diameter measurements using calipers at middle of the stem internode immediately below the most recently fully emerged leaf. * associated variable(s): c(“stalk_diameter_fixed_height”, “stalk_diameter_major_axis”, “stalk_diameter_minor_axis”)</p>
+<p><strong>Stereo RGB data to emergence count</strong> * citation: ZongyangLi 2020 Maricopa Field Station Data and Metadata<br />
+* total observations: 461 * description:<br />
+* associated variable(s): emergence_count</p>
+<p><strong>Stem elongated internodes and basal tillers counts - visual repeat measures on marked plants</strong> * citation: Newcomb, Maria 2016 Field measurements from Maricopa Agricultural Center<br />
+* total observations: 461 * description: Multiple plants per plot were demarcated in the field early in the season using golf tees placed adjacent to the selected seedlings; numbers of leaves (internodes) were repeatedly counted on the same plant over time by permanently marking each new fully emerged leaf with the leaf number (1 = first leaf to develop) to capture temporal dynamics of growth. Numbers of tillers at each observation early in the season were also counted. Sorghum Crop Ontology Identifier CO_324:0000235 <a href="http://www.cropontology.org/terms/CO_324:0000235/Stem%20elongated%20internodes%20number/static-html?language=english" class="uri">http://www.cropontology.org/terms/CO_324:0000235/Stem%20elongated%20internodes%20number/static-html?language=english</a>; Basal tiller number was counted as the number of tillers with a fully emerged leaf. Sorghum Crop Ontology Identifier CO_324:0000344 <a href="http://www.cropontology.org/terms/CO_324:0000344/Plant%20basal%20tiller%20number%20-%20Counting/static-html?language=english" class="uri">http://www.cropontology.org/terms/CO_324:0000344/Plant%20basal%20tiller%20number%20-%20Counting/static-html?language=english</a> * associated variable(s): stem_elongated_internodes_number</p>
+<p><strong>Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter</strong> * citation: Newcomb, Maria 2017 Maricopa Agricultural Center Field Measurements and Activities<br />
+* total observations: 461 * description: The optical leaf-clip meter (Dualex Scientific+) uses 5 LED light sources, including 1 UV-A, 1 read and 2 near-infrared (NIR) and a silicon photodiode detector to estimate chlorophyll content in leaves as well as flavonol and anthocyanin contents in the leaf epidermis. Measurements were taken on sunlit leaves in the upper canopy. Within each sampled plot, multiple subsample measurements were taken, each on different leaves, targeting fully developed sunlit leaves when possible. The instrument reports 5 measurements: 1) the temperature of the optical emitting head, 2) chlorophyll index (=(NIR trans. - Red trans.)/Red trans), 3) flavonol index (=Log(NIR fluo. excited red/NIR fluo. excited UV-A), 4) anthocyanin index (=Log(NIR fluo. excited red/NIR fluo. excited green), and 5) NBI (proprietary) nitrogen status, Chl/Flav ratio.<br />
+* associated variable(s): c(“anthocyanin_index”, “chlorophyll_index”, “flavonol_index”, “NBI_nitrogen_balance_index”)</p>
+<!--chapter:end:methods.md-->
+<p>Variables (Traits and Phenotypes)</p>
+<p><strong>Dry Biomass</strong> (kg / ha) * name: aboveground_dry_biomass * description: Aboveground Dry Biomass *<em>notes</em>: CO_324:0000545</p>
+<p>The whole above ground biomass expressed on dry matter (field) basis that was harvested per unit area.</p>
+<p><strong>Moisture Content</strong> (%) * name: aboveground_biomass_moisture * description: Whole above ground biomass moisture content *<em>notes</em>: CO_324:0000564 Whole above ground biomass moisture content</p>
+<p><strong>Panicle Height</strong> (cm) * name: panicle_height * description: height to top of panicle *<em>notes</em>: Height of the top of the inflorescence panicle</p>
+<p><strong>Canopy Height</strong> (cm) * name: canopy_height * description: top of the general canopy of the plant, discounting any exceptional branches, leaves or photosynthetic portions of the inflorescence. *<em>notes</em>: p 175 of Pérez-Harguindeguy et al 2013 New handbook for standardised measurement of plant functional traits worldwide. Australian Journal of Botany, 61, 167–234</p>
+<p><a href="http://www.publish.csiro.au/?paper=BT12225" class="uri">http://www.publish.csiro.au/?paper=BT12225</a></p>
+<p><a href="doi:10.1071/BT12225" class="uri">doi:10.1071/BT12225</a></p>
+<p><strong>Stalk Diameter fixed height</strong> (mm) * name: stalk_diameter_fixed_height * description: Diameter of the stalk in the internodal area nearest to the given measurement height *<em>notes</em>: Stalk diameter measurements taken on marked plants for repeat and multiple measures on the same plants over time.</p>
+<p><strong>Flavonol Index</strong> (ratio) * name: flavonol_index * description: Flavonol content in the leaf epidermis, expressed as a relative index [Log(NIR fluo. excited red/NIR fluo. excited UV-A)] *<em>notes</em>: Flavonol index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter. See: <a href="http://www.dynamax.com/images/uploads/papers/Dualex.pdf" class="uri">http://www.dynamax.com/images/uploads/papers/Dualex.pdf</a></p>
+<p><strong>Nitrogen Balance Index</strong> (ratio) * name: NBI_nitrogen_balance_index * description: NBI (nitrogen balance index) is a relative measure of nitrogen status (Chl/Flav ratio) related to Nitrogen/Carbon allocation *<em>notes</em>: Nitrogen balance index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter. NBI is a trademark indicator of nitrogen deficiency. See: <a href="http://www.dynamax.com/images/uploads/papers/Dualex.pdf" class="uri">http://www.dynamax.com/images/uploads/papers/Dualex.pdf</a></p>
+<p><strong>Leaf Angle Mean </strong> (normalized degrees) * name: leaf_angle_mean * description: *<em>notes</em>: Store leaf_angle_variance as a statistic for leaf_angle_mean; min = 0, max = 1.</p>
+<p><strong>Leaf Angle Alpha</strong> () * name: leaf_angle_alpha * description: *<em>notes</em>: min = 0, max = 10;</p>
+<p><strong>Leaf Angle Beta</strong> () * name: leaf_angle_beta * description: *<em>notes</em>: min = 0, max = 10;</p>
+<p><strong>Stalk Diameter Major Axis</strong> (mm) * name: stalk_diameter_major_axis * description: Diameter of the widest axis of the stalk in the internodal area below the most recent fully developed leaf, including the true stem and leaf sheath *<em>notes</em>: Stalk diameter measurements taken on marked plants for repeat and multiple measures on the same plants over time.</p>
+<p><strong>Leaf Angle Chi</strong> () * name: leaf_angle_chi * description: *<em>notes</em>: min = 0, max = 10;</p>
+<p><strong>Lodging Presence</strong> (binary) * name: lodging_present * description: Plant lodging: presence or absence of lodging or severe leaning within a plot. 1 = present, 0 = absent. Sorghum Crop Ontology Identifier CO_324:0000283. *<em>notes</em>:</p>
+<p><strong>Basal Tiller Number</strong> () * name: plant_basal_tiller_number * description: Sorghum Crop Ontology Identifier CO_324:0000040. Number of basal tillers. *<em>notes</em>:</p>
+<p><strong>Seedlings Per Plot</strong> () * name: emergence_count * description: number of plants counted within plot or subplot during emergence. Sorghum Crop Ontology Identifier CO_324:0000486 <a href="http://www.cropontology.org/terms/CO_324:0000486/Plant%20number%20-%20Counting/static-html?language=english" class="uri">http://www.cropontology.org/terms/CO_324:0000486/Plant%20number%20-%20Counting/static-html?language=english</a> *<em>notes</em>: CO_324:0000177</p>
+<p><strong>Stalk Diameter Minor Axis</strong> (mm) * name: stalk_diameter_minor_axis * description: Diameter of the thinnest axis of the stalk in the internodal area below the most recent fully developed leaf, including the true stem and leaf sheath *<em>notes</em>: Stalk diameter measurements taken on marked plants for repeat and multiple measures on the same plants over time.</p>
+<p><strong>Harvest Lodging Rating</strong> () * name: harvest_lodging_rating * description: Categorical rating of lodging severity at harvest. 0 = none; 1 = light to moderate lodging; 2 = severe lodging *<em>notes</em>: Rapid visual assessment at the time of harvest. Some of the lodging observed at harvest may have occurred during the time after irrigation was terminated to allow the ground to dry for harvest equipment access.</p>
+<p><strong>Ratio of Dry to Fresh Weight</strong> (ratio) * name: dry_matter_fraction * description: Ratio of dry weight to fresh weight *<em>notes</em>:</p>
+<p><strong>Stomatal Conductance</strong> (mmol/(m² s)) * name: leaf_stomatal_conductance * description: Stomatal conductance is a function of the density, size, and open versus closed status of stomatal pores in the leaf. *<em>notes</em>: Measured using a leaf porometer (Decagon SC-1) that puts the conductance of a leaf in series with two known conductance elements and compares the humidity measurements between them. A newer porometer unit was used in 2017 sorghum season 4, with a recent factory calibration certificate. In 2017 all measurements were made with desiccant and following the suggested sensor head calibration procedures. <a href="http://manuals.decagon.com/Manuals/10711_Leaf%20Porometer_Web.pdf" class="uri">http://manuals.decagon.com/Manuals/10711_Leaf%20Porometer_Web.pdf</a></p>
+<p><strong>Anthocyanin Index</strong> (ratio) * name: anthocyanin_index * description: Anthocyanin content in the leaf epidermis, expressed as a relative index [Log(NIR fluo. excited red/NIR fluo. excited green)] *<em>notes</em>: Anthocyanin index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter. See: <a href="http://www.dynamax.com/images/uploads/papers/Dualex.pdf" class="uri">http://www.dynamax.com/images/uploads/papers/Dualex.pdf</a></p>
+<p><strong>Leaf Temperature</strong> (K) * name: leaf_temperature * description: temperature of the surface of a sunlit leaf *<em>notes</em>: Typically 6 sub-sample measurements were taken within a plot, 3 of which were taken in each of the West and East subplot rows.</p>
+<p><strong>Seedling Emergence Rate</strong> (ratio) * name: seedling_emergence_rate * description: Seedling emergence rate *<em>notes</em>: Emerged seedlings counted manually by subplot row. Seed drop counts recorded by Kincaid precision planter laser counter during planting. Planted length of each subplot row approximately 3.5 meters.</p>
+<p><strong>Days to Grain Stage</strong> (days) * name: grain_stage_time * description: Number of days from sowing to the date when grain development was observed in approximately 50% of the plants within a plot *<em>notes</em>:</p>
+<p><strong>Days to Flag Leaf Emergence</strong> (days) * name: flag_leaf_emergence_time * description: Number days from sowing to the date when 50% of the plants in a plot have reached flag leaf emergence (ligulation) stage. Flag leaf is the last leaf to emerge from the whorl, positioned directly below the panicle. *<em>notes</em>: <a href="http://www.cropontology.org/rdf/CO_324:0000274" class="uri">http://www.cropontology.org/rdf/CO_324:0000274</a></p>
+<p><strong>Days to Flowering</strong> (days) * name: flowering_time * description: Number of days from sowing to the date when 50% of the plants in a plot reach flowering (anthesis), defined as the time when 50% of the anthers on 50% of the plants in a plot have emerged. *<em>notes</em>: <a href="http://www.cropontology.org/rdf/CO_324:0000027" class="uri">http://www.cropontology.org/rdf/CO_324:0000027</a><br />
+The yellow anthers first appear at the panicle tip and appear incrementally downward on the panicle, generally over a number of days.</p>
+<p><strong>Absorbance at 650 nm</strong> (arbitrary absorbance units) * name: absorbance_650 * description: Absorbance at 650 nm *<em>notes</em>: Measurement only recorded if it falls within narrow acceptance range. MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Chlorophyll Index</strong> (ratio) * name: chlorophyll_index * description: Leaf chlorophyll content, expressed as a relative index [(NIR trans. - Red trans.)/Red trans.] *<em>notes</em>: Chlorophyll index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter. See: <a href="http://www.dynamax.com/images/uploads/papers/Dualex.pdf" class="uri">http://www.dynamax.com/images/uploads/papers/Dualex.pdf</a></p>
+<p><strong>Number of Seeds Planted</strong> (count) * name: planter_seed_drop * description: Number of seeds dropped per planted length of subplot row during planting *<em>notes</em>: From planter file recorded by Kincaid precision planter laser counter and associated planter software. Planted length of each subplot row approximately 3.5 meters.</p>
+<p><strong>Panicle Count</strong> (count) * name: panicle_count * description: *<em>notes</em>: min = 0, max = 1000;</p>
+<p><strong>Canopy Cover</strong> (%) * name: canopy_cover * description: Fraction of ground covered by plant *<em>notes</em>:</p>
+<p><strong>Fresh Biomass</strong> (kg / ha) * name: aboveground_fresh_biomass * description: Fresh Biomass *<em>notes</em>: CO_324:0000556</p>
+<p>The whole above ground biomass expressed fresh (field) basis that was harvested per unit area.</p>
+<p><strong>Absorbance at 850nm</strong> (%) * name: absorbance_850 * description: Absorbance at 850 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Panicle Volume</strong> (mm3) * name: panicle_volume * description: *<em>notes</em>: min = 0, max = 1000000</p>
+<p><strong>Panicle Surface Area</strong> (mm2) * name: panicle_surface_area * description: *<em>notes</em>: min = 0, max = 1000000;</p>
+<p><strong>Roll Angle of Instrument</strong> () * name: roll * description: The angle that the handheld instrument is held along the long axis *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Absorbance at 530nm</strong> (arbitrary absorbance units) * name: absorbance_530 * description: Absorbance at 530 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>gH+</strong> () * name: gH+ * description: Photosynthesis-related parameter describing proton motive force and activity of ATP synthase *<em>notes</em>: MultispeQ v1.0 measurement. ECSt, vH+, and gH+ describe the accumulation of protons in the thylakoid and their flow through ATP synthase which converts ADP to ATP. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Absorbance at 730nm</strong> (arbitrary absorbance units) * name: absorbance_730 * description: Absorbance at 730 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Fs Fluorescence at Steady State</strong> () * name: Fs * description: Photosynthesis-related parameter describing variable fluorescence at steady-state conditions *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>PhiNO</strong> () * name: PhiNO * description: Chlorophyll fluorescence-derived photosynthesis parameter, ratio of incoming light lost via non-regulated processes *<em>notes</em>: MultispeQ v1.0 measurement. PhiNO is the combination of a number of unregulated processes whose by-products can inhibit photosynthesis or be harmful to the plant. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>PhiNPQ</strong> () * name: PhiNPQ * description: Chlorophyll fluorescence-derived photosynthesis parameter, ratio of incoming light that goes towards non-photochemical quenching *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Absorbance at 605nm</strong> (arbitrary absorbance units) * name: absorbance_605 * description: Absorbance at 605 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Absorbance at 880nm</strong> (arbitrary absorbance units) * name: absorbance_880 * description: Absorbance at 880 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Absorbance at 940nm</strong> (arbitrary absorbance units) * name: absorbance_940 * description: Absorbance at 940 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Chlorophyll Fluorescence Decrease Ratio, RFd</strong> (ratio) * name: RFd * description: Chlorophyll fluorescence decrease ratio, photosynthesis parameter described as an index of vitality *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>qP Photochemical Quenching, qP</strong> () * name: qP * description: Photosynthesis-related parameter, a photochemical quenching coefficient *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>NPQt Non Photochemical Quenching</strong> () * name: NPQt * description: Photosynthesis-related parameter, estimate of non-photochemical quenching *<em>notes</em>: Tietz S et al. 2017. Plant, Cell and Environment 40: 1243-1255. MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Fraction of PSII Open, qL</strong> () * name: qL * description: Photosynthesis-related parameter, estimate of the fraction of Photosystem II centers that are in the open state *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Pitch Angle of Instrument</strong> () * name: pitch * description: The angle that the handheld instrument is held along the short axis *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Ambient Humidity</strong> (%) * name: ambient_humidity * description: Ambient relative humidity near the plant canopy *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Leaf Angle</strong> () * name: leaf_angle_clamp_position * description: Angle of the leaf at the position where the handheld clamp is placed for measurements *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Proximal Air Temperature</strong> (C) * name: proximal_air_temperature * description: Air temperature measured by handheld sensor near the leaf surface and proximal to the plant canopy *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>FvP/FmP</strong> () * name: FvP/FmP * description: Fluorescence parameter associated with Photosystem II operating efficiency *<em>notes</em>: MultispeQ v1.0 measurement. Calculation of FvP/FmP requires determination of FoPrime. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Leaf Thickness</strong> (mm) * name: leaf_thickness * description: Leaf thickness estimate *<em>notes</em>: MultispeQ v1.0 measurement. Leaf thickness is measured using a Hall Effect sensor on the main body of the instrument and a magnet on the clamp body. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>FmPrime</strong> () * name: FmPrime * description: Photosynthesis-related parameter describing maximum variable fluorescence at steady-state conditions *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>FoPrime</strong> () * name: FoPrime * description: Photosynthesis-related parameter describing minimum variable fluorescence during dark phase after steady-state *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>ATP Synthase Photon Flux, vH+</strong> () * name: vH+ * description: Rate of flux describing max rate of protons exiting the ATP synthase, a photosynthesis-related parameter describing proton motive force *<em>notes</em>: MultispeQ v1.0 measurement. ECSt, vH+, and gH+ describe the accumulation of protons in the thylakoid and their flow through ATP synthase which converts ADP to ATP. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Leaf - Air Temperature Difference</strong> (C) * name: leaf_temperature_differential * description: Difference between the leaf temperature and the ambient air temperature *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Electrochemical Shift ECSt</strong> () * name: ECSt * description: Electrochromic shift: a photosynthesis-related parameter describing proton motive force *<em>notes</em>: MultispeQ v1.0 measurement. ECSt, vH+, and gH+ describe the accumulation of protons in the thylakoid and their flow through ATP synthase which converts ADP to ATP. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Quantum Yield of PSII, Phi2</strong> () * name: Phi2 * description: Chlorophyll fluorescence-derived photosynthesis parameter related to quantum yield of Photosystem II *<em>notes</em>: MultispeQ v1.0 measurement. Describes the percentage of incoming light (excited electrons) that go into Photosystem II. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Relative Chlorophyll Content</strong> () * name: relative_chlorophyll * description: Relative value describing the concentration of chlorophyll in the leaf, ranges from 0 to 80 *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Absorbance at 420nm</strong> (arbitrary absorbance units) * name: absorbance_420 * description: Absorbance at 420 nm *<em>notes</em>: Measurements are only recorded if within a narrow acceptance window. MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Surface temperature</strong> (C) * name: surface_temperature * description: Surface temperature *<em>notes</em>: Basaed on Climate Forecasting (CF) conventions “The surface called”surface&quot; means the lower boundary of the atmosphere; the temperature at the interface, not the bulk temperature of the medium above or below&quot;</p>
+<p>For measurements made with infrared thermal radiometer (like FLIR) this variable surface_temperature should be used, not canopy_temperature or soil_temperature or leaf_temperature.</p>
+<p><strong>Photosynthetically Active Radiation</strong> () * name: light_intensity_PAR * description: Photosynthetically active radiation. Fraction of incoming light (400 - 700 nm) which can be intercepted by leaf *<em>notes</em>: MultispeQ v1.0 measurement. A function of the specific position of the handheld instrument. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Linear Electron Flux</strong> (µmol electrons m-1 s-1) * name: LEF * description: Linear electronic flux: total flow of electrons from antennae complexes into Photosystem II *<em>notes</em>: MultispeQ v1.0 measurement. Calculated as LEF = Phi2 x PAR x 0.42. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Stand Count</strong> (count) * name: stand_count * description: Number of plants per subplot or plot, counted after thinning *<em>notes</em>: Number of plants counted within a subplot or plot. Also referred to as plant number in sorghum crop ontology (Identifier CO_324:0000485, <a href="http://www.cropontology.org/ontology/CO_324/Sorghum" class="uri">http://www.cropontology.org/ontology/CO_324/Sorghum</a>).</p>
+<p><strong>Leaf Width</strong> (mm) * name: leaf_width * description: width of leaf at widest point along leaf *<em>notes</em>: min = 0, max = 2000;</p>
+<p><strong>Leaf Dessication Presence</strong> () * name: leaf_desiccation_present * description: Presence or absence of leaves showing desiccation. 1 = present, 0 = absent *<em>notes</em>: Desiccation defined as premature cell death in younger leaves associated with injury or stress as opposed to senescence.</p>
+<p><strong>Leaf Length</strong> (mm) * name: leaf_length * description: Length of leaf from tip to stem along the midrib. *<em>notes</em>: min = 0, max = 25000; max from record longest leaf</p>
+<p><strong>SPAD Absorbance at 420 nm</strong> (arbitrary absorbance units) * name: SPAD_420 * description: Relative measure of leaf greenness, based on absorbance at 420 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>SPAD Absorbance at 530 nm</strong> (arbitrary absorbance units) * name: SPAD_530 * description: Relative measure of leaf greenness, based on absorbance at 530 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>SPAD Absorbance at 605 nm</strong> (arbitrary absorbance units) * name: SPAD_605 * description: Relative measure of leaf greenness, based on absorbance at 605 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>SPAD Absorbance at 650 nm</strong> (arbitrary absorbance units) * name: SPAD_650 * description: Relative measure of leaf greenness, based on absorbance at 650 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>SPAD Absorbance at 730 nm</strong> (arbitrary absorbance units) * name: SPAD_730 * description: Relative measure of leaf greenness, based on absorbance at 730 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>SPAD Absorbance at 850 nm</strong> (arbitrary absorbance units) * name: SPAD_850 * description: Relative measure of leaf greenness, based on absorbance at 850 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>SPAD Absorbance at 880 nm</strong> (arbitrary absorbance units) * name: SPAD_880 * description: Relative measure of leaf greenness, based on absorbance at 880 nm *<em>notes</em>: MultispeQ v1.0 measurement. <a href="https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0" class="uri">https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0</a></p>
+<p><strong>Elongated Internode Number</strong> (count) * name: stem_elongated_internodes_number * description: Sorghum Crop Ontology Identifier CO_324:0000235. Number of elongated internodes on the main stem. *<em>notes</em>:</p>
+<!--chapter:end:variables.md-->
+</div>
+</div>
+<div id="germplasm-1" class="section level1">
+<h1>Germplasm</h1>
+<p>A list of cultivars and the experiments in which they are planted are listed in the table below, from the file ‘germplasm.csv’. Additional attributes are listed in the files ‘season_4_germplasm.json’ and ‘season_6_germplasm.json’.</p>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="65%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">germplasmName</th>
+<th align="left">germplasmPUI</th>
+<th align="left">season_4</th>
+<th align="left">season_6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">PI221548</td>
+<td align="left"><a href="https://purl.org/germplasm/id/dd1e5189-e9b1-4f9b-b207-f04822064add" class="uri">https://purl.org/germplasm/id/dd1e5189-e9b1-4f9b-b207-f04822064add</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI576401</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6bf2d2e7-8806-4721-b603-9973b999ff13" class="uri">https://purl.org/germplasm/id/6bf2d2e7-8806-4721-b603-9973b999ff13</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570388</td>
+<td align="left"><a href="https://purl.org/germplasm/id/98b6133c-76f9-46ae-a6e1-e49f96a99d65" class="uri">https://purl.org/germplasm/id/98b6133c-76f9-46ae-a6e1-e49f96a99d65</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152651</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1fa3d272-de99-484b-ba10-72468ed68709" class="uri">https://purl.org/germplasm/id/1fa3d272-de99-484b-ba10-72468ed68709</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329351</td>
+<td align="left"><a href="https://purl.org/germplasm/id/25c07ed7-ae91-4481-b76d-e1e7f40eae2a" class="uri">https://purl.org/germplasm/id/25c07ed7-ae91-4481-b76d-e1e7f40eae2a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI646242</td>
+<td align="left"><a href="https://purl.org/germplasm/id/98e4fae2-ccd5-49ca-8da0-db3d76aced6c" class="uri">https://purl.org/germplasm/id/98e4fae2-ccd5-49ca-8da0-db3d76aced6c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329618</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330196</td>
+<td align="left"><a href="https://purl.org/germplasm/id/62711cf9-90b6-4396-be6d-55248739d98d" class="uri">https://purl.org/germplasm/id/62711cf9-90b6-4396-be6d-55248739d98d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI156268</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570393</td>
+<td align="left"><a href="https://purl.org/germplasm/id/33134da8-d34f-4d69-8b8c-fa6a0be70e49" class="uri">https://purl.org/germplasm/id/33134da8-d34f-4d69-8b8c-fa6a0be70e49</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI155885</td>
+<td align="left"><a href="https://purl.org/germplasm/id/78481777-3420-4bc4-9756-7580c9b78547" class="uri">https://purl.org/germplasm/id/78481777-3420-4bc4-9756-7580c9b78547</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329338</td>
+<td align="left"><a href="https://purl.org/germplasm/id/24869fe2-5f9d-4b33-aef1-b23a8f11fc2b" class="uri">https://purl.org/germplasm/id/24869fe2-5f9d-4b33-aef1-b23a8f11fc2b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI146890</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9004ab74-8c76-47e8-82ca-35a4bfdf1618" class="uri">https://purl.org/germplasm/id/9004ab74-8c76-47e8-82ca-35a4bfdf1618</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330169</td>
+<td align="left"><a href="https://purl.org/germplasm/id/2b0a5697-32e3-49ce-bfcb-ce9617fd5cbc" class="uri">https://purl.org/germplasm/id/2b0a5697-32e3-49ce-bfcb-ce9617fd5cbc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641825</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI583832</td>
+<td align="left"><a href="https://purl.org/germplasm/id/62ccdfcf-43e1-4e0f-bb50-4436eff798db" class="uri">https://purl.org/germplasm/id/62ccdfcf-43e1-4e0f-bb50-4436eff798db</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329299</td>
+<td align="left"><a href="https://purl.org/germplasm/id/aeda869f-23ea-4662-ae5c-2caea77bb119" class="uri">https://purl.org/germplasm/id/aeda869f-23ea-4662-ae5c-2caea77bb119</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI154844</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570110</td>
+<td align="left"><a href="https://purl.org/germplasm/id/226bf366-66f6-423e-a38b-f8413a52fd96" class="uri">https://purl.org/germplasm/id/226bf366-66f6-423e-a38b-f8413a52fd96</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI455280</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1ff6886f-7952-48b3-a3a2-b8da0aa88de1" class="uri">https://purl.org/germplasm/id/1ff6886f-7952-48b3-a3a2-b8da0aa88de1</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329546</td>
+<td align="left"><a href="https://purl.org/germplasm/id/bfa91f96-774e-4a92-ae88-cd0920dbec2b" class="uri">https://purl.org/germplasm/id/bfa91f96-774e-4a92-ae88-cd0920dbec2b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI562998</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1145abd2-b0a4-4425-acda-256bea603200" class="uri">https://purl.org/germplasm/id/1145abd2-b0a4-4425-acda-256bea603200</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI521290</td>
+<td align="left"><a href="https://purl.org/germplasm/id/dcb0d5ae-716d-46c2-862a-0c3ec290161c" class="uri">https://purl.org/germplasm/id/dcb0d5ae-716d-46c2-862a-0c3ec290161c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570254</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI653617</td>
+<td align="left"><a href="https://purl.org/germplasm/id/be98e010-af40-44d9-a764-3276e9ca58f7" class="uri">https://purl.org/germplasm/id/be98e010-af40-44d9-a764-3276e9ca58f7</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI455301</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6b64f773-5bf5-4c40-83aa-40557e0d9538" class="uri">https://purl.org/germplasm/id/6b64f773-5bf5-4c40-83aa-40557e0d9538</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569458</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4ab1727e-efb3-4d84-b7cc-2e23a7f1be9f" class="uri">https://purl.org/germplasm/id/4ab1727e-efb3-4d84-b7cc-2e23a7f1be9f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI521019</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c8ecfd05-39e7-4061-bbef-b106475995a8" class="uri">https://purl.org/germplasm/id/c8ecfd05-39e7-4061-bbef-b106475995a8</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI455217</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3ede5f43-6773-4ba5-a70a-094b3483207e" class="uri">https://purl.org/germplasm/id/3ede5f43-6773-4ba5-a70a-094b3483207e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI563222</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562981</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4a014b39-ee29-4d19-889f-66ca2a76244a" class="uri">https://purl.org/germplasm/id/4a014b39-ee29-4d19-889f-66ca2a76244a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570031</td>
+<td align="left"><a href="https://purl.org/germplasm/id/73c67054-8a74-4fe3-bed5-406fcdaeb615" class="uri">https://purl.org/germplasm/id/73c67054-8a74-4fe3-bed5-406fcdaeb615</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570400</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c19163c9-9d31-4688-a27b-d4cc1e4829b6" class="uri">https://purl.org/germplasm/id/c19163c9-9d31-4688-a27b-d4cc1e4829b6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI533792</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3788f357-729f-4f19-a65c-a16932b325f0" class="uri">https://purl.org/germplasm/id/3788f357-729f-4f19-a65c-a16932b325f0</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569457</td>
+<td align="left"><a href="https://purl.org/germplasm/id/74bae204-f0af-409a-869d-d9dacd73683d" class="uri">https://purl.org/germplasm/id/74bae204-f0af-409a-869d-d9dacd73683d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI535795</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a61d2dd3-3a7b-4b0a-aa60-936d6057fd97" class="uri">https://purl.org/germplasm/id/a61d2dd3-3a7b-4b0a-aa60-936d6057fd97</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329710</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7a4e3695-427d-46ab-8e5d-af1b7dbd73ba" class="uri">https://purl.org/germplasm/id/7a4e3695-427d-46ab-8e5d-af1b7dbd73ba</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570109</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562897</td>
+<td align="left"><a href="https://purl.org/germplasm/id/73bbfc9e-c61a-4ec3-ada7-2a12b322692d" class="uri">https://purl.org/germplasm/id/73bbfc9e-c61a-4ec3-ada7-2a12b322692d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569420</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ec65a095-18e3-4482-843a-43f70a5132f6" class="uri">https://purl.org/germplasm/id/ec65a095-18e3-4482-843a-43f70a5132f6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641810</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b54c5855-ccfc-49f7-a7c2-bfc55b21ade7" class="uri">https://purl.org/germplasm/id/b54c5855-ccfc-49f7-a7c2-bfc55b21ade7</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI213900</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI196586</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5a4c7d0e-9b29-4337-b62f-63f4b42fd43e" class="uri">https://purl.org/germplasm/id/5a4c7d0e-9b29-4337-b62f-63f4b42fd43e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329300</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d19e64cf-5ca3-447f-832a-f776f9e635f8" class="uri">https://purl.org/germplasm/id/d19e64cf-5ca3-447f-832a-f776f9e635f8</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI154987</td>
+<td align="left"><a href="https://purl.org/germplasm/id/2c443cb1-b34c-4122-9759-d2801e8894fc" class="uri">https://purl.org/germplasm/id/2c443cb1-b34c-4122-9759-d2801e8894fc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152771</td>
+<td align="left"><a href="https://purl.org/germplasm/id/19532f92-fd5c-4377-a1b9-83520c7a3717" class="uri">https://purl.org/germplasm/id/19532f92-fd5c-4377-a1b9-83520c7a3717</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI506030</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b366ee9f-1069-4da9-9121-af5d0b9885f7" class="uri">https://purl.org/germplasm/id/b366ee9f-1069-4da9-9121-af5d0b9885f7</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI651496</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329501</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d47aab5a-0fc8-45cc-b08b-5a722c1291af" class="uri">https://purl.org/germplasm/id/d47aab5a-0fc8-45cc-b08b-5a722c1291af</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330803</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0f84d6f6-5bf7-4a02-bbd4-90909333b543" class="uri">https://purl.org/germplasm/id/0f84d6f6-5bf7-4a02-bbd4-90909333b543</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563331</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329645</td>
+<td align="left"><a href="https://purl.org/germplasm/id/302be577-8b5c-4a47-94f6-c6ad316c174c" class="uri">https://purl.org/germplasm/id/302be577-8b5c-4a47-94f6-c6ad316c174c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI180348</td>
+<td align="left"><a href="https://purl.org/germplasm/id/53a31371-53b1-4f74-85be-979a7a7c3e06" class="uri">https://purl.org/germplasm/id/53a31371-53b1-4f74-85be-979a7a7c3e06</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI655983</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641829</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fbbbb382-2016-4d93-982f-ff2b6431930c" class="uri">https://purl.org/germplasm/id/fbbbb382-2016-4d93-982f-ff2b6431930c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI217691</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8cb50770-22bd-4128-b00d-6c1ad75421c5" class="uri">https://purl.org/germplasm/id/8cb50770-22bd-4128-b00d-6c1ad75421c5</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641836</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI586541</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e2ac2553-bab5-4475-ba09-b59f3fffb060" class="uri">https://purl.org/germplasm/id/e2ac2553-bab5-4475-ba09-b59f3fffb060</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152591</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ed6310a8-a1b9-4a94-b4d3-baf4fab9a69e" class="uri">https://purl.org/germplasm/id/ed6310a8-a1b9-4a94-b4d3-baf4fab9a69e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569447</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7445385f-8d42-458c-9712-7c4047ebd6bd" class="uri">https://purl.org/germplasm/id/7445385f-8d42-458c-9712-7c4047ebd6bd</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI330195</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3854726c-2f17-45c6-8d98-58047b499831" class="uri">https://purl.org/germplasm/id/3854726c-2f17-45c6-8d98-58047b499831</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641815</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9d0d73ba-ecaa-4e1f-98e7-032986351218" class="uri">https://purl.org/germplasm/id/9d0d73ba-ecaa-4e1f-98e7-032986351218</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152694</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fe511f9b-5ecf-45ee-bc10-11b625dbdada" class="uri">https://purl.org/germplasm/id/fe511f9b-5ecf-45ee-bc10-11b625dbdada</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569427</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1e0ba271-096d-49df-8b42-7957c1e98c27" class="uri">https://purl.org/germplasm/id/1e0ba271-096d-49df-8b42-7957c1e98c27</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152733</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c229d5ea-332e-489b-91a6-528fab20a547" class="uri">https://purl.org/germplasm/id/c229d5ea-332e-489b-91a6-528fab20a547</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329310</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ece4b2df-e6a9-4ef1-aa0b-41a51c7d84f0" class="uri">https://purl.org/germplasm/id/ece4b2df-e6a9-4ef1-aa0b-41a51c7d84f0</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI505717</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI576399</td>
+<td align="left"><a href="https://purl.org/germplasm/id/630b9e11-b113-4bfa-a137-77241145ab79" class="uri">https://purl.org/germplasm/id/630b9e11-b113-4bfa-a137-77241145ab79</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569444</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330858</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f5af3b3c-ac14-4cf8-a576-f82d021fac0f" class="uri">https://purl.org/germplasm/id/f5af3b3c-ac14-4cf8-a576-f82d021fac0f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569422</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e7a302b3-c755-4957-bab6-8b72befb1141" class="uri">https://purl.org/germplasm/id/e7a302b3-c755-4957-bab6-8b72befb1141</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330833</td>
+<td align="left"><a href="https://purl.org/germplasm/id/447c5927-8ddd-4921-aeea-d7ab11a80bf1" class="uri">https://purl.org/germplasm/id/447c5927-8ddd-4921-aeea-d7ab11a80bf1</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329550</td>
+<td align="left"><a href="https://purl.org/germplasm/id/55135fd7-2b6a-4536-9a95-7b94abe5356e" class="uri">https://purl.org/germplasm/id/55135fd7-2b6a-4536-9a95-7b94abe5356e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641830</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6af779e5-2734-407e-82d0-d28a49af1bce" class="uri">https://purl.org/germplasm/id/6af779e5-2734-407e-82d0-d28a49af1bce</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI651495</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a070ff1e-0935-4953-b49b-e7dad62c2ef4" class="uri">https://purl.org/germplasm/id/a070ff1e-0935-4953-b49b-e7dad62c2ef4</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI563196</td>
+<td align="left"><a href="https://purl.org/germplasm/id/82f3ee4c-6402-49fe-be5c-b18ed9fb94d6" class="uri">https://purl.org/germplasm/id/82f3ee4c-6402-49fe-be5c-b18ed9fb94d6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569453</td>
+<td align="left"><a href="https://purl.org/germplasm/id/926c81d7-36bc-4e07-ad7e-4a7768d4e39c" class="uri">https://purl.org/germplasm/id/926c81d7-36bc-4e07-ad7e-4a7768d4e39c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI156217</td>
+<td align="left"><a href="https://purl.org/germplasm/id/86e23f19-c08b-4fc4-8139-cf84c768fc24" class="uri">https://purl.org/germplasm/id/86e23f19-c08b-4fc4-8139-cf84c768fc24</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI656015</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI156487</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0efb451c-f3ae-4fec-b1ab-4cb03ab5d19a" class="uri">https://purl.org/germplasm/id/0efb451c-f3ae-4fec-b1ab-4cb03ab5d19a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI330184</td>
+<td align="left"><a href="https://purl.org/germplasm/id/2156e045-fa7d-43c1-8a69-6dc6ca9d1e2c" class="uri">https://purl.org/germplasm/id/2156e045-fa7d-43c1-8a69-6dc6ca9d1e2c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329864</td>
+<td align="left"><a href="https://purl.org/germplasm/id/aa3964f3-b43e-46b2-ad8a-37ec6955e459" class="uri">https://purl.org/germplasm/id/aa3964f3-b43e-46b2-ad8a-37ec6955e459</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI619807</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f5e49050-1dd5-49c0-9d37-d189a7b820cd" class="uri">https://purl.org/germplasm/id/f5e49050-1dd5-49c0-9d37-d189a7b820cd</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI453696</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f500b312-6f76-42d3-9967-537c8259a890" class="uri">https://purl.org/germplasm/id/f500b312-6f76-42d3-9967-537c8259a890</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI585961</td>
+<td align="left"><a href="https://purl.org/germplasm/id/33134da8-d34f-4d69-8b8c-fa6a0be70e49" class="uri">https://purl.org/germplasm/id/33134da8-d34f-4d69-8b8c-fa6a0be70e49</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329256</td>
+<td align="left"><a href="https://purl.org/germplasm/id/bf389b63-6cfd-4a15-9412-ae8ef2d60eac" class="uri">https://purl.org/germplasm/id/bf389b63-6cfd-4a15-9412-ae8ef2d60eac</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562982</td>
+<td align="left"><a href="https://purl.org/germplasm/id/82f3ee4c-6402-49fe-be5c-b18ed9fb94d6" class="uri">https://purl.org/germplasm/id/82f3ee4c-6402-49fe-be5c-b18ed9fb94d6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570114</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b5fdbd20-d5ea-4d55-8f7e-c057c2de2934" class="uri">https://purl.org/germplasm/id/b5fdbd20-d5ea-4d55-8f7e-c057c2de2934</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI646251</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c414d2f4-956f-441f-aa28-695aab1ab87f" class="uri">https://purl.org/germplasm/id/c414d2f4-956f-441f-aa28-695aab1ab87f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI585452</td>
+<td align="left"><a href="https://purl.org/germplasm/id/508a92cf-6c10-4053-b2e3-1a8a9534ee85" class="uri">https://purl.org/germplasm/id/508a92cf-6c10-4053-b2e3-1a8a9534ee85</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563295</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI524475</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b53a8046-3701-4bcd-a795-295f5e1d96ad" class="uri">https://purl.org/germplasm/id/b53a8046-3701-4bcd-a795-295f5e1d96ad</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI646266</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b54c5855-ccfc-49f7-a7c2-bfc55b21ade7" class="uri">https://purl.org/germplasm/id/b54c5855-ccfc-49f7-a7c2-bfc55b21ade7</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152862</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ce1b59c6-cf00-4445-b75c-37fbc4ddfa63" class="uri">https://purl.org/germplasm/id/ce1b59c6-cf00-4445-b75c-37fbc4ddfa63</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI535792</td>
+<td align="left"><a href="https://purl.org/germplasm/id/51939d24-7874-497c-9b11-3e4f1a64587d" class="uri">https://purl.org/germplasm/id/51939d24-7874-497c-9b11-3e4f1a64587d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI156890</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fb8dfe8a-05e9-4e39-abdc-101e10f6c111" class="uri">https://purl.org/germplasm/id/fb8dfe8a-05e9-4e39-abdc-101e10f6c111</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329569</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e767f8c9-54fc-4173-acc0-da4296b30722" class="uri">https://purl.org/germplasm/id/e767f8c9-54fc-4173-acc0-da4296b30722</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI330182</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0186cec6-d5c9-4cd1-8f21-9f9183d5b87a" class="uri">https://purl.org/germplasm/id/0186cec6-d5c9-4cd1-8f21-9f9183d5b87a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569418</td>
+<td align="left"><a href="https://purl.org/germplasm/id/962f9ba6-849a-413a-bd25-1a251d5d7fca" class="uri">https://purl.org/germplasm/id/962f9ba6-849a-413a-bd25-1a251d5d7fca</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">SP1615</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152828</td>
+<td align="left"><a href="https://purl.org/germplasm/id/63c916b2-6777-47f6-8d3a-fd7f7fb26d7a" class="uri">https://purl.org/germplasm/id/63c916b2-6777-47f6-8d3a-fd7f7fb26d7a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329466</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9c9a13b9-c2b6-403e-8a17-d2b81d98ccd0" class="uri">https://purl.org/germplasm/id/9c9a13b9-c2b6-403e-8a17-d2b81d98ccd0</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI229841</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329644</td>
+<td align="left"><a href="https://purl.org/germplasm/id/cc130ca1-99cd-427b-ba9d-65814193e4da" class="uri">https://purl.org/germplasm/id/cc130ca1-99cd-427b-ba9d-65814193e4da</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI655978</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI563332</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0cf04017-9df4-460b-a272-4449f227fde2" class="uri">https://purl.org/germplasm/id/0cf04017-9df4-460b-a272-4449f227fde2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI266927</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fe56bb55-d3a1-49d1-b0b0-0e416af33813" class="uri">https://purl.org/germplasm/id/fe56bb55-d3a1-49d1-b0b0-0e416af33813</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI506122</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI155760</td>
+<td align="left"><a href="https://purl.org/germplasm/id/57b50b10-514a-4967-9823-d13c4c3a8a8a" class="uri">https://purl.org/germplasm/id/57b50b10-514a-4967-9823-d13c4c3a8a8a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI535783</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4963b150-6cd5-4eaf-9b36-f634d377888a" class="uri">https://purl.org/germplasm/id/4963b150-6cd5-4eaf-9b36-f634d377888a</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI526905</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3b678fe0-381a-4795-8417-93ec57af1269" class="uri">https://purl.org/germplasm/id/3b678fe0-381a-4795-8417-93ec57af1269</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI542718</td>
+<td align="left"><a href="https://purl.org/germplasm/id/476a7bc3-fb0a-4d8f-b4d7-45cdef06bf83" class="uri">https://purl.org/germplasm/id/476a7bc3-fb0a-4d8f-b4d7-45cdef06bf83</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562971</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ed4918f6-243a-49e3-8d12-79f63f4bdf1f" class="uri">https://purl.org/germplasm/id/ed4918f6-243a-49e3-8d12-79f63f4bdf1f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI145619</td>
+<td align="left"><a href="https://purl.org/germplasm/id/abe6a08f-a3aa-4b3e-a99d-b359d25895bd" class="uri">https://purl.org/germplasm/id/abe6a08f-a3aa-4b3e-a99d-b359d25895bd</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569416</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ac3ae692-7777-4f40-899c-bd48ca2138c5" class="uri">https://purl.org/germplasm/id/ac3ae692-7777-4f40-899c-bd48ca2138c5</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI297155</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563355</td>
+<td align="left"><a href="https://purl.org/germplasm/id/dc2f7250-f1db-40ce-8e09-c4833a14aee3" class="uri">https://purl.org/germplasm/id/dc2f7250-f1db-40ce-8e09-c4833a14aee3</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI255239</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI157035</td>
+<td align="left"><a href="https://purl.org/germplasm/id/381baf8e-95f9-4693-8d79-e0bb2867aa19" class="uri">https://purl.org/germplasm/id/381baf8e-95f9-4693-8d79-e0bb2867aa19</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569423</td>
+<td align="left"><a href="https://purl.org/germplasm/id/48cc2c1e-9f02-4a78-8a38-38ab3ed403b5" class="uri">https://purl.org/germplasm/id/48cc2c1e-9f02-4a78-8a38-38ab3ed403b5</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152751</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d8a91d35-025d-42a1-baed-b6a1b0a297e9" class="uri">https://purl.org/germplasm/id/d8a91d35-025d-42a1-baed-b6a1b0a297e9</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI570145</td>
+<td align="left"><a href="https://purl.org/germplasm/id/cb914303-77d2-4917-bc9d-da44277281fb" class="uri">https://purl.org/germplasm/id/cb914303-77d2-4917-bc9d-da44277281fb</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI643008</td>
+<td align="left"><a href="https://purl.org/germplasm/id/029bd493-c3fe-4f6f-9ef7-13e152eb965e" class="uri">https://purl.org/germplasm/id/029bd493-c3fe-4f6f-9ef7-13e152eb965e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI534165</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e71176c1-3f31-4f43-a93d-98ed9713239f" class="uri">https://purl.org/germplasm/id/e71176c1-3f31-4f43-a93d-98ed9713239f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI506114</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI156326</td>
+<td align="left"><a href="https://purl.org/germplasm/id/72876e91-91cd-4971-83d8-a2bc022ec83d" class="uri">https://purl.org/germplasm/id/72876e91-91cd-4971-83d8-a2bc022ec83d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI144134</td>
+<td align="left"><a href="https://purl.org/germplasm/id/025567e3-5e53-4c24-987c-f161e5f294e8" class="uri">https://purl.org/germplasm/id/025567e3-5e53-4c24-987c-f161e5f294e8</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI562991</td>
+<td align="left"><a href="https://purl.org/germplasm/id/247637f0-b7dd-4f02-a0e0-39a7c55c453b" class="uri">https://purl.org/germplasm/id/247637f0-b7dd-4f02-a0e0-39a7c55c453b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Big_Kahuna</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI585461</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ad526925-f6c9-46f5-99b5-03e514293b33" class="uri">https://purl.org/germplasm/id/ad526925-f6c9-46f5-99b5-03e514293b33</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329471</td>
+<td align="left"><a href="https://purl.org/germplasm/id/28f61bbc-f7a9-4e8b-9489-0f908757ce79" class="uri">https://purl.org/germplasm/id/28f61bbc-f7a9-4e8b-9489-0f908757ce79</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569097</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d3738d12-56af-4426-8963-63215065eb0b" class="uri">https://purl.org/germplasm/id/d3738d12-56af-4426-8963-63215065eb0b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI303658</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6053ada7-471b-4dbb-b4b0-99d3bfc55bd6" class="uri">https://purl.org/germplasm/id/6053ada7-471b-4dbb-b4b0-99d3bfc55bd6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI563006</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329403</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3a3f315f-65e6-451f-be5d-0b0842e33ad3" class="uri">https://purl.org/germplasm/id/3a3f315f-65e6-451f-be5d-0b0842e33ad3</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI593916</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e0e828f3-d623-49f6-a656-68ff40d9e9c3" class="uri">https://purl.org/germplasm/id/e0e828f3-d623-49f6-a656-68ff40d9e9c3</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570087</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8d88e812-3249-4a97-89fb-4b0a0a6327be" class="uri">https://purl.org/germplasm/id/8d88e812-3249-4a97-89fb-4b0a0a6327be</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI619838</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d2d19894-2399-4335-979d-73f20e0ecde8" class="uri">https://purl.org/germplasm/id/d2d19894-2399-4335-979d-73f20e0ecde8</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI157030</td>
+<td align="left"><a href="https://purl.org/germplasm/id/bfd7cf43-7311-4a8d-88d4-a1c46ef72f49" class="uri">https://purl.org/germplasm/id/bfd7cf43-7311-4a8d-88d4-a1c46ef72f49</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI52606</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3e5cfd4d-79f6-43ce-bedd-aa3a63723976" class="uri">https://purl.org/germplasm/id/3e5cfd4d-79f6-43ce-bedd-aa3a63723976</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569452</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641807</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI642998</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI19770</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b58e8a7f-ff95-4709-aa95-c3e79f7ff039" class="uri">https://purl.org/germplasm/id/b58e8a7f-ff95-4709-aa95-c3e79f7ff039</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563329</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3c9027b2-8bb6-4589-b8d1-74149324543b" class="uri">https://purl.org/germplasm/id/3c9027b2-8bb6-4589-b8d1-74149324543b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI568717</td>
+<td align="left"><a href="https://purl.org/germplasm/id/756d137d-e889-47b8-8b3d-484c395a721b" class="uri">https://purl.org/germplasm/id/756d137d-e889-47b8-8b3d-484c395a721b</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152727</td>
+<td align="left"><a href="https://purl.org/germplasm/id/275382a9-4dba-4af1-9be1-512743801917" class="uri">https://purl.org/germplasm/id/275382a9-4dba-4af1-9be1-512743801917</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI257600</td>
+<td align="left"><a href="https://purl.org/germplasm/id/74d5abd1-2cf1-441d-9b7d-fdc119e0aff1" class="uri">https://purl.org/germplasm/id/74d5abd1-2cf1-441d-9b7d-fdc119e0aff1</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI330185</td>
+<td align="left"><a href="https://purl.org/germplasm/id/11a9a8c7-694c-423e-add8-40e4d8a16c1c" class="uri">https://purl.org/germplasm/id/11a9a8c7-694c-423e-add8-40e4d8a16c1c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569445</td>
+<td align="left"><a href="https://purl.org/germplasm/id/36232bbc-3691-4dfd-b439-05ed39b721b1" class="uri">https://purl.org/germplasm/id/36232bbc-3691-4dfd-b439-05ed39b721b1</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI196583</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d4cadbae-e71b-4dc9-bd7e-4c2e13b09757" class="uri">https://purl.org/germplasm/id/d4cadbae-e71b-4dc9-bd7e-4c2e13b09757</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641850</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6402479f-541f-4fbd-a06f-df17bd5a347d" class="uri">https://purl.org/germplasm/id/6402479f-541f-4fbd-a06f-df17bd5a347d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329301</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6053ded9-69e1-4509-9295-b7cdbcac93ea" class="uri">https://purl.org/germplasm/id/6053ded9-69e1-4509-9295-b7cdbcac93ea</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI573193</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e94deb10-bbf1-4e1b-b0f4-841257ca056d" class="uri">https://purl.org/germplasm/id/e94deb10-bbf1-4e1b-b0f4-841257ca056d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI167093</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0576b2d1-9127-41b6-9995-ee61cbfa4cdc" class="uri">https://purl.org/germplasm/id/0576b2d1-9127-41b6-9995-ee61cbfa4cdc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI176766</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e571e807-bf93-4e84-a62f-93596c6da786" class="uri">https://purl.org/germplasm/id/e571e807-bf93-4e84-a62f-93596c6da786</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329326</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d00c0c30-7124-48f4-8e79-02638501f527" class="uri">https://purl.org/germplasm/id/d00c0c30-7124-48f4-8e79-02638501f527</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330168</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9d07e74e-b99c-4245-b72e-b2c377e35bba" class="uri">https://purl.org/germplasm/id/9d07e74e-b99c-4245-b72e-b2c377e35bba</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329394</td>
+<td align="left"><a href="https://purl.org/germplasm/id/61f7b121-10d4-40b1-b001-a7bad794fbc5" class="uri">https://purl.org/germplasm/id/61f7b121-10d4-40b1-b001-a7bad794fbc5</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI585577</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0a32f153-53fd-4bd4-a636-aa2e456751ae" class="uri">https://purl.org/germplasm/id/0a32f153-53fd-4bd4-a636-aa2e456751ae</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI561840</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI586435</td>
+<td align="left"><a href="https://purl.org/germplasm/id/83ca3458-f3f8-441b-88f3-f7209956f10d" class="uri">https://purl.org/germplasm/id/83ca3458-f3f8-441b-88f3-f7209956f10d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI585406</td>
+<td align="left"><a href="https://purl.org/germplasm/id/37019ec0-c054-4ed5-b0e5-76eaaec9c16a" class="uri">https://purl.org/germplasm/id/37019ec0-c054-4ed5-b0e5-76eaaec9c16a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152971</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6f1a6b14-3f9a-40c2-a1f1-c1eabe9e405f" class="uri">https://purl.org/germplasm/id/6f1a6b14-3f9a-40c2-a1f1-c1eabe9e405f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562997</td>
+<td align="left"><a href="https://purl.org/germplasm/id/dc2f7250-f1db-40ce-8e09-c4833a14aee3" class="uri">https://purl.org/germplasm/id/dc2f7250-f1db-40ce-8e09-c4833a14aee3</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI156330</td>
+<td align="left"><a href="https://purl.org/germplasm/id/01969831-1d18-44bf-aea1-6930b725b5b6" class="uri">https://purl.org/germplasm/id/01969831-1d18-44bf-aea1-6930b725b5b6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI156871</td>
+<td align="left"><a href="https://purl.org/germplasm/id/12c8def5-6c70-4e9b-8fcc-39af244c9da7" class="uri">https://purl.org/germplasm/id/12c8def5-6c70-4e9b-8fcc-39af244c9da7</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330181</td>
+<td align="left"><a href="https://purl.org/germplasm/id/aca0ed54-2467-429a-89b4-daee951e995f" class="uri">https://purl.org/germplasm/id/aca0ed54-2467-429a-89b4-daee951e995f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI63715</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c414d2f4-956f-441f-aa28-695aab1ab87f" class="uri">https://purl.org/germplasm/id/c414d2f4-956f-441f-aa28-695aab1ab87f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570073</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e6ab794d-f6a0-422e-976f-0e868d8d26dc" class="uri">https://purl.org/germplasm/id/e6ab794d-f6a0-422e-976f-0e868d8d26dc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI302252</td>
+<td align="left"><a href="https://purl.org/germplasm/id/45e19efe-44e4-430f-8864-8805a74b1dcd" class="uri">https://purl.org/germplasm/id/45e19efe-44e4-430f-8864-8805a74b1dcd</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570038</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0f53fa04-e19a-4f36-ba30-b6fc369a2b94" class="uri">https://purl.org/germplasm/id/0f53fa04-e19a-4f36-ba30-b6fc369a2b94</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI653616</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9450768f-3927-445b-878c-026709a3b103" class="uri">https://purl.org/germplasm/id/9450768f-3927-445b-878c-026709a3b103</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569244</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0017a7f9-bc2d-48e9-a5f8-299a9b61eef1" class="uri">https://purl.org/germplasm/id/0017a7f9-bc2d-48e9-a5f8-299a9b61eef1</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI221651</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1b4ac98c-4308-4a1e-8a48-8a94b1a7dc60" class="uri">https://purl.org/germplasm/id/1b4ac98c-4308-4a1e-8a48-8a94b1a7dc60</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI337680</td>
+<td align="left"><a href="https://purl.org/germplasm/id/abc600d5-a294-496a-ad35-fa0640d9af11" class="uri">https://purl.org/germplasm/id/abc600d5-a294-496a-ad35-fa0640d9af11</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562990</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0cf04017-9df4-460b-a272-4449f227fde2" class="uri">https://purl.org/germplasm/id/0cf04017-9df4-460b-a272-4449f227fde2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570373</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8e40e1e3-228b-4a22-b7b7-3eff781303ea" class="uri">https://purl.org/germplasm/id/8e40e1e3-228b-4a22-b7b7-3eff781303ea</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI297171</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569090</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569425</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5ad032a1-4c8a-490f-ba55-87bd94befe82" class="uri">https://purl.org/germplasm/id/5ad032a1-4c8a-490f-ba55-87bd94befe82</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI329585</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8b07041c-9932-494b-90aa-a5be1d29f0f9" class="uri">https://purl.org/germplasm/id/8b07041c-9932-494b-90aa-a5be1d29f0f9</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI564163</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0ba28636-e634-428a-aa58-4346a20de326" class="uri">https://purl.org/germplasm/id/0ba28636-e634-428a-aa58-4346a20de326</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641860</td>
+<td align="left"><a href="https://purl.org/germplasm/id/2c933874-ac10-4e79-be7e-6fae1ea74150" class="uri">https://purl.org/germplasm/id/2c933874-ac10-4e79-be7e-6fae1ea74150</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI145633</td>
+<td align="left"><a href="https://purl.org/germplasm/id/943bbef8-a81f-4dc2-8d09-dc249a9df85f" class="uri">https://purl.org/germplasm/id/943bbef8-a81f-4dc2-8d09-dc249a9df85f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI525049</td>
+<td align="left"><a href="https://purl.org/germplasm/id/269ead3e-0e6c-471a-b84e-6e05ea1ae4b0" class="uri">https://purl.org/germplasm/id/269ead3e-0e6c-471a-b84e-6e05ea1ae4b0</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329570</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1e1fface-d201-4817-b166-0899d282f664" class="uri">https://purl.org/germplasm/id/1e1fface-d201-4817-b166-0899d282f664</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI251672</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7e53a96a-1176-4d5e-b16d-19ac246712f4" class="uri">https://purl.org/germplasm/id/7e53a96a-1176-4d5e-b16d-19ac246712f4</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152816</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d9f1a570-7348-4df0-b56c-dd8a0d139091" class="uri">https://purl.org/germplasm/id/d9f1a570-7348-4df0-b56c-dd8a0d139091</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329480</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d08e56ba-f757-4ee9-b30a-57e4014ca257" class="uri">https://purl.org/germplasm/id/d08e56ba-f757-4ee9-b30a-57e4014ca257</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI22913</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI35038</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI276837</td>
+<td align="left"><a href="https://purl.org/germplasm/id/eb2b9f36-b36d-4956-be79-9f93d426407d" class="uri">https://purl.org/germplasm/id/eb2b9f36-b36d-4956-be79-9f93d426407d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI452542</td>
+<td align="left"><a href="https://purl.org/germplasm/id/79483e1c-c2e2-471d-82cf-5ee371471f4a" class="uri">https://purl.org/germplasm/id/79483e1c-c2e2-471d-82cf-5ee371471f4a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570085</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3c3ad6dc-1791-4e2e-bc61-e25964713e5e" class="uri">https://purl.org/germplasm/id/3c3ad6dc-1791-4e2e-bc61-e25964713e5e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI92270</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI157804</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c7928765-0fb2-467c-a570-cf8ca2236365" class="uri">https://purl.org/germplasm/id/c7928765-0fb2-467c-a570-cf8ca2236365</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI620072</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6fc40ec5-74cb-4b7b-bbdf-1ead75e781bf" class="uri">https://purl.org/germplasm/id/6fc40ec5-74cb-4b7b-bbdf-1ead75e781bf</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152923</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3f223f79-9c35-4691-8c26-603e8e9aac79" class="uri">https://purl.org/germplasm/id/3f223f79-9c35-4691-8c26-603e8e9aac79</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329473</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563338</td>
+<td align="left"><a href="https://purl.org/germplasm/id/247637f0-b7dd-4f02-a0e0-39a7c55c453b" class="uri">https://purl.org/germplasm/id/247637f0-b7dd-4f02-a0e0-39a7c55c453b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI506069</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI527045</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e05f7796-5ebb-4016-9f11-1c9da22858e2" class="uri">https://purl.org/germplasm/id/e05f7796-5ebb-4016-9f11-1c9da22858e2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569460</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f342e812-feb1-43ea-ad79-1545916e75ce" class="uri">https://purl.org/germplasm/id/f342e812-feb1-43ea-ad79-1545916e75ce</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI651497</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0ee39d00-1104-4c72-b9f7-45d7433bb03b" class="uri">https://purl.org/germplasm/id/0ee39d00-1104-4c72-b9f7-45d7433bb03b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI273969</td>
+<td align="left"><a href="https://purl.org/germplasm/id/11be6869-cc98-4f3c-8080-abae53714633" class="uri">https://purl.org/germplasm/id/11be6869-cc98-4f3c-8080-abae53714633</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570431</td>
+<td align="left"><a href="https://purl.org/germplasm/id/83ca3458-f3f8-441b-88f3-f7209956f10d" class="uri">https://purl.org/germplasm/id/83ca3458-f3f8-441b-88f3-f7209956f10d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI218112</td>
+<td align="left"><a href="https://purl.org/germplasm/id/dc9854e7-cbc4-4783-8bb1-03d46528c155" class="uri">https://purl.org/germplasm/id/dc9854e7-cbc4-4783-8bb1-03d46528c155</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI505722</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI585454</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6fc40ec5-74cb-4b7b-bbdf-1ead75e781bf" class="uri">https://purl.org/germplasm/id/6fc40ec5-74cb-4b7b-bbdf-1ead75e781bf</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI181080</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4783541e-981c-47b0-a335-9e42248e52ac" class="uri">https://purl.org/germplasm/id/4783541e-981c-47b0-a335-9e42248e52ac</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI329646</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5587442b-b6b7-46cd-87f7-09868abbb839" class="uri">https://purl.org/germplasm/id/5587442b-b6b7-46cd-87f7-09868abbb839</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI511355</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3a488a5a-5a5e-4041-84dc-efcdaa3194e2" class="uri">https://purl.org/germplasm/id/3a488a5a-5a5e-4041-84dc-efcdaa3194e2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI196598</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7f557954-11b7-4f7c-9b82-6c7219953cb3" class="uri">https://purl.org/germplasm/id/7f557954-11b7-4f7c-9b82-6c7219953cb3</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI505735</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329843</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f71b57ea-6068-4f1a-84b9-8ea3edcbb805" class="uri">https://purl.org/germplasm/id/f71b57ea-6068-4f1a-84b9-8ea3edcbb805</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI514456</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8bba5714-4bdb-43fe-91af-88e12cd7e980" class="uri">https://purl.org/germplasm/id/8bba5714-4bdb-43fe-91af-88e12cd7e980</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570106</td>
+<td align="left"><a href="https://purl.org/germplasm/id/37019ec0-c054-4ed5-b0e5-76eaaec9c16a" class="uri">https://purl.org/germplasm/id/37019ec0-c054-4ed5-b0e5-76eaaec9c16a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI535794</td>
+<td align="left"><a href="https://purl.org/germplasm/id/bff0afb3-3368-4140-810d-9c5af9fa16bf" class="uri">https://purl.org/germplasm/id/bff0afb3-3368-4140-810d-9c5af9fa16bf</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI521280</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0c49e96b-9351-4395-ac22-7f3d3168b596" class="uri">https://purl.org/germplasm/id/0c49e96b-9351-4395-ac22-7f3d3168b596</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI513898</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3e5cfd4d-79f6-43ce-bedd-aa3a63723976" class="uri">https://purl.org/germplasm/id/3e5cfd4d-79f6-43ce-bedd-aa3a63723976</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152961</td>
+<td align="left"><a href="https://purl.org/germplasm/id/54237f11-e2f1-4d25-8535-dfda7ee05c6d" class="uri">https://purl.org/germplasm/id/54237f11-e2f1-4d25-8535-dfda7ee05c6d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Unknown off type</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI329510</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8b4fefb6-a410-4a84-b6ed-188980143536" class="uri">https://purl.org/germplasm/id/8b4fefb6-a410-4a84-b6ed-188980143536</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329605</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4e70bc85-3bfa-4668-8698-d4e8db3e62b9" class="uri">https://purl.org/germplasm/id/4e70bc85-3bfa-4668-8698-d4e8db3e62b9</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI253986</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0b98578a-6dd3-4f97-a3e3-1312fa314ac6" class="uri">https://purl.org/germplasm/id/0b98578a-6dd3-4f97-a3e3-1312fa314ac6</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI156178</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d1603bcf-aadd-436f-bdd8-a50975f0d5bc" class="uri">https://purl.org/germplasm/id/d1603bcf-aadd-436f-bdd8-a50975f0d5bc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI455221</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641817</td>
+<td align="left"><a href="https://purl.org/germplasm/id/518f1a4d-4978-4319-802b-c6ce7ea517b2" class="uri">https://purl.org/germplasm/id/518f1a4d-4978-4319-802b-c6ce7ea517b2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI175919</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4783541e-981c-47b0-a335-9e42248e52ac" class="uri">https://purl.org/germplasm/id/4783541e-981c-47b0-a335-9e42248e52ac</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI533902</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b53a8046-3701-4bcd-a795-295f5e1d96ad" class="uri">https://purl.org/germplasm/id/b53a8046-3701-4bcd-a795-295f5e1d96ad</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329632</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563021</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0017a7f9-bc2d-48e9-a5f8-299a9b61eef1" class="uri">https://purl.org/germplasm/id/0017a7f9-bc2d-48e9-a5f8-299a9b61eef1</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569465</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0750e3f1-7eb1-4e6d-83fa-898c535881b9" class="uri">https://purl.org/germplasm/id/0750e3f1-7eb1-4e6d-83fa-898c535881b9</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329435</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e16c3914-70f7-4a98-aff8-6e0a81ba97dd" class="uri">https://purl.org/germplasm/id/e16c3914-70f7-4a98-aff8-6e0a81ba97dd</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI510757</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI550604</td>
+<td align="left"><a href="https://purl.org/germplasm/id/78d55afa-9f83-49a6-8388-690099b9ef8e" class="uri">https://purl.org/germplasm/id/78d55afa-9f83-49a6-8388-690099b9ef8e</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI152730</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI156463</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ba636332-9edf-4976-9bca-02dab2805d71" class="uri">https://purl.org/germplasm/id/ba636332-9edf-4976-9bca-02dab2805d71</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570091</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6bf2d2e7-8806-4721-b603-9973b999ff13" class="uri">https://purl.org/germplasm/id/6bf2d2e7-8806-4721-b603-9973b999ff13</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI585966</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c19163c9-9d31-4688-a27b-d4cc1e4829b6" class="uri">https://purl.org/germplasm/id/c19163c9-9d31-4688-a27b-d4cc1e4829b6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329465</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9f3069c1-f3a3-4da8-aa75-7c1bfb33b3ba" class="uri">https://purl.org/germplasm/id/9f3069c1-f3a3-4da8-aa75-7c1bfb33b3ba</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI181083</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e571e807-bf93-4e84-a62f-93596c6da786" class="uri">https://purl.org/germplasm/id/e571e807-bf93-4e84-a62f-93596c6da786</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI297130</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI643016</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a0ff5954-fa0b-4e3c-8582-37594934bf0a" class="uri">https://purl.org/germplasm/id/a0ff5954-fa0b-4e3c-8582-37594934bf0a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI521152</td>
+<td align="left"><a href="https://purl.org/germplasm/id/41e84198-6870-4651-acc7-30c7d60fa5f9" class="uri">https://purl.org/germplasm/id/41e84198-6870-4651-acc7-30c7d60fa5f9</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI585608</td>
+<td align="left"><a href="https://purl.org/germplasm/id/98b6133c-76f9-46ae-a6e1-e49f96a99d65" class="uri">https://purl.org/germplasm/id/98b6133c-76f9-46ae-a6e1-e49f96a99d65</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641821</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8e49cb00-205d-48a1-9735-7fd74fb7f062" class="uri">https://purl.org/germplasm/id/8e49cb00-205d-48a1-9735-7fd74fb7f062</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329865</td>
+<td align="left"><a href="https://purl.org/germplasm/id/cca907d6-5aca-482d-9434-0b624e7dab82" class="uri">https://purl.org/germplasm/id/cca907d6-5aca-482d-9434-0b624e7dab82</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI655981</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI154944</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6f1bdfe7-3341-41d4-b8f4-cfd4cbd9388a" class="uri">https://purl.org/germplasm/id/6f1bdfe7-3341-41d4-b8f4-cfd4cbd9388a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329584</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ebc8df26-ec47-4c9e-93f2-b6fb6a22116c" class="uri">https://purl.org/germplasm/id/ebc8df26-ec47-4c9e-93f2-b6fb6a22116c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI154846</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c87513c1-fccb-4560-bd8d-c65c2f4a548a" class="uri">https://purl.org/germplasm/id/c87513c1-fccb-4560-bd8d-c65c2f4a548a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152966</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4dc011d4-ad02-40e1-865f-a2915c9eb9c6" class="uri">https://purl.org/germplasm/id/4dc011d4-ad02-40e1-865f-a2915c9eb9c6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569443</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7a21d9de-c0fa-4e7d-8a76-1b2bb450d5c2" class="uri">https://purl.org/germplasm/id/7a21d9de-c0fa-4e7d-8a76-1b2bb450d5c2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI337689</td>
+<td align="left"><a href="https://purl.org/germplasm/id/254723e9-69be-49dc-8bf8-e0f3c94a21fc" class="uri">https://purl.org/germplasm/id/254723e9-69be-49dc-8bf8-e0f3c94a21fc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI586443</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI152965</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fd1f6766-227d-4f44-9068-466b209794c5" class="uri">https://purl.org/germplasm/id/fd1f6766-227d-4f44-9068-466b209794c5</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI255744</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a07d78c3-5d39-4466-abbf-aee01f7d2ed4" class="uri">https://purl.org/germplasm/id/a07d78c3-5d39-4466-abbf-aee01f7d2ed4</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI563032</td>
+<td align="left"><a href="https://purl.org/germplasm/id/4a014b39-ee29-4d19-889f-66ca2a76244a" class="uri">https://purl.org/germplasm/id/4a014b39-ee29-4d19-889f-66ca2a76244a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329518</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ca57a9d0-85e8-4704-b618-ed0386d9e865" class="uri">https://purl.org/germplasm/id/ca57a9d0-85e8-4704-b618-ed0386d9e865</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI651491</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0ed1e59c-a819-46bd-bb0b-60e4d3c7464e" class="uri">https://purl.org/germplasm/id/0ed1e59c-a819-46bd-bb0b-60e4d3c7464e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562970</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9dae9cfa-1492-402b-af0e-ca1da9472603" class="uri">https://purl.org/germplasm/id/9dae9cfa-1492-402b-af0e-ca1da9472603</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI620157</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ad526925-f6c9-46f5-99b5-03e514293b33" class="uri">https://purl.org/germplasm/id/ad526925-f6c9-46f5-99b5-03e514293b33</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI533998</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f966880c-67cd-4794-baf4-67defd9efc29" class="uri">https://purl.org/germplasm/id/f966880c-67cd-4794-baf4-67defd9efc29</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330796</td>
+<td align="left"><a href="https://purl.org/germplasm/id/0ff23ea5-344e-4f76-806a-de2a35025e97" class="uri">https://purl.org/germplasm/id/0ff23ea5-344e-4f76-806a-de2a35025e97</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569264</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9c830d04-2c35-40c7-8350-f713629b7c6c" class="uri">https://purl.org/germplasm/id/9c830d04-2c35-40c7-8350-f713629b7c6c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152728</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9bd09d68-dd08-475e-b9e7-40aaac889f9b" class="uri">https://purl.org/germplasm/id/9bd09d68-dd08-475e-b9e7-40aaac889f9b</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI154750</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI540518</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a1c4570c-d118-4c18-b7a0-32ada6a9355c" class="uri">https://purl.org/germplasm/id/a1c4570c-d118-4c18-b7a0-32ada6a9355c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570074</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b7ae60ce-959a-4aa1-b300-daa14d720d5e" class="uri">https://purl.org/germplasm/id/b7ae60ce-959a-4aa1-b300-daa14d720d5e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI563350</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b0fb9c81-fbed-4141-a1ba-282a35561bcc" class="uri">https://purl.org/germplasm/id/b0fb9c81-fbed-4141-a1ba-282a35561bcc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563330</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329665</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641892</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e1c71429-85dc-4219-a3ce-18a082304325" class="uri">https://purl.org/germplasm/id/e1c71429-85dc-4219-a3ce-18a082304325</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330807</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570090</td>
+<td align="left"><a href="https://purl.org/germplasm/id/630b9e11-b113-4bfa-a137-77241145ab79" class="uri">https://purl.org/germplasm/id/630b9e11-b113-4bfa-a137-77241145ab79</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI656026</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641909</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d2d19894-2399-4335-979d-73f20e0ecde8" class="uri">https://purl.org/germplasm/id/d2d19894-2399-4335-979d-73f20e0ecde8</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI566819</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e5c9836e-ac55-473f-984e-9fac69e10553" class="uri">https://purl.org/germplasm/id/e5c9836e-ac55-473f-984e-9fac69e10553</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI267573</td>
+<td align="left"><a href="https://purl.org/germplasm/id/04d855a8-ff1c-4998-956f-9cc4d75e3e62" class="uri">https://purl.org/germplasm/id/04d855a8-ff1c-4998-956f-9cc4d75e3e62</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329519</td>
+<td align="left"><a href="https://purl.org/germplasm/id/90e7d930-6526-4ef5-831f-fae4208d2e90" class="uri">https://purl.org/germplasm/id/90e7d930-6526-4ef5-831f-fae4208d2e90</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329506</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8cca5acb-496d-480d-b2b9-073e401134a2" class="uri">https://purl.org/germplasm/id/8cca5acb-496d-480d-b2b9-073e401134a2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI153877</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b12c6a7c-9913-4b7e-b539-4ebae71e6021" class="uri">https://purl.org/germplasm/id/b12c6a7c-9913-4b7e-b539-4ebae71e6021</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI273465</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI534120</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e05f7796-5ebb-4016-9f11-1c9da22858e2" class="uri">https://purl.org/germplasm/id/e05f7796-5ebb-4016-9f11-1c9da22858e2</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI535793</td>
+<td align="left"><a href="https://purl.org/germplasm/id/82b90fb0-5d4f-4d65-beb0-c8fdfdecbabe" class="uri">https://purl.org/germplasm/id/82b90fb0-5d4f-4d65-beb0-c8fdfdecbabe</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI329673</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8cf8eb14-c8eb-4d6b-a117-2664e649de18" class="uri">https://purl.org/germplasm/id/8cf8eb14-c8eb-4d6b-a117-2664e649de18</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI196049</td>
+<td align="left"><a href="https://purl.org/germplasm/id/e6a84645-7ae1-468e-922f-16fd34ce2d64" class="uri">https://purl.org/germplasm/id/e6a84645-7ae1-468e-922f-16fd34ce2d64</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569886</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6b56c933-cbf5-434a-bebc-f976ed1d8ea4" class="uri">https://purl.org/germplasm/id/6b56c933-cbf5-434a-bebc-f976ed1d8ea4</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570071</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fd5b422b-4e36-40b2-a5ce-626b8faacddc" class="uri">https://purl.org/germplasm/id/fd5b422b-4e36-40b2-a5ce-626b8faacddc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329711</td>
+<td align="left"><a href="https://purl.org/germplasm/id/eb768c60-3573-4700-80f2-7bfc957b5643" class="uri">https://purl.org/germplasm/id/eb768c60-3573-4700-80f2-7bfc957b5643</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329614</td>
+<td align="left"><a href="https://purl.org/germplasm/id/cddf7990-f96e-44f5-8ed9-66bbadcf40cd" class="uri">https://purl.org/germplasm/id/cddf7990-f96e-44f5-8ed9-66bbadcf40cd</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI156393</td>
+<td align="left"><a href="https://purl.org/germplasm/id/48f2f5e2-c34a-4877-baf1-4a26ebd68bbb" class="uri">https://purl.org/germplasm/id/48f2f5e2-c34a-4877-baf1-4a26ebd68bbb</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329333</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9268f228-1402-480d-bd45-c4261381fb99" class="uri">https://purl.org/germplasm/id/9268f228-1402-480d-bd45-c4261381fb99</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569148</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5ac6c4ab-0404-402c-bb4d-30336a2031d4" class="uri">https://purl.org/germplasm/id/5ac6c4ab-0404-402c-bb4d-30336a2031d4</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI562730</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI641824</td>
+<td align="left"><a href="https://purl.org/germplasm/id/494e57c1-d185-4ab1-802c-994c2336e948" class="uri">https://purl.org/germplasm/id/494e57c1-d185-4ab1-802c-994c2336e948</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570076</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7f4d43e9-30ea-4703-91fb-ebe70c034f51" class="uri">https://purl.org/germplasm/id/7f4d43e9-30ea-4703-91fb-ebe70c034f51</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI562994</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b0fb9c81-fbed-4141-a1ba-282a35561bcc" class="uri">https://purl.org/germplasm/id/b0fb9c81-fbed-4141-a1ba-282a35561bcc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI655972</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI152967</td>
+<td align="left"><a href="https://purl.org/germplasm/id/593a3b08-1578-483d-92cb-6548c098cbd6" class="uri">https://purl.org/germplasm/id/593a3b08-1578-483d-92cb-6548c098cbd6</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI195754</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329517</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7c3ad788-3b87-47c4-906f-09658b04309d" class="uri">https://purl.org/germplasm/id/7c3ad788-3b87-47c4-906f-09658b04309d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563020</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5ac6c4ab-0404-402c-bb4d-30336a2031d4" class="uri">https://purl.org/germplasm/id/5ac6c4ab-0404-402c-bb4d-30336a2031d4</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI179749</td>
+<td align="left"><a href="https://purl.org/germplasm/id/dbc4971a-dec7-4845-934a-df0ce701c327" class="uri">https://purl.org/germplasm/id/dbc4971a-dec7-4845-934a-df0ce701c327</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329319</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a955faab-fd84-4a22-a05c-a84fa967107e" class="uri">https://purl.org/germplasm/id/a955faab-fd84-4a22-a05c-a84fa967107e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI455307</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ebee2281-408c-4883-87d7-ec87b3b48d7d" class="uri">https://purl.org/germplasm/id/ebee2281-408c-4883-87d7-ec87b3b48d7d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569419</td>
+<td align="left"><a href="https://purl.org/germplasm/id/860a38cc-d60a-4f45-ac24-61fedda06fdf" class="uri">https://purl.org/germplasm/id/860a38cc-d60a-4f45-ac24-61fedda06fdf</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569455</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5af26b6e-b450-4359-95ac-67556658ce3d" class="uri">https://purl.org/germplasm/id/5af26b6e-b450-4359-95ac-67556658ce3d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI145626</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8a9936b9-fdc4-4315-a9a1-6fab364e8b77" class="uri">https://purl.org/germplasm/id/8a9936b9-fdc4-4315-a9a1-6fab364e8b77</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329841</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6d9554c8-8e33-4bec-97e5-0dc8e951a55b" class="uri">https://purl.org/germplasm/id/6d9554c8-8e33-4bec-97e5-0dc8e951a55b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI170787</td>
+<td align="left"><a href="https://purl.org/germplasm/id/37b64efe-68b5-47aa-8e72-120e8a903e72" class="uri">https://purl.org/germplasm/id/37b64efe-68b5-47aa-8e72-120e8a903e72</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569459</td>
+<td align="left"><a href="https://purl.org/germplasm/id/7b6a3caa-ef26-4794-8390-7d9a750d2277" class="uri">https://purl.org/germplasm/id/7b6a3caa-ef26-4794-8390-7d9a750d2277</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569421</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI656035</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI257599</td>
+<td align="left"><a href="https://purl.org/germplasm/id/364c6cee-4dce-4df1-89dc-6d91b5a3a5db" class="uri">https://purl.org/germplasm/id/364c6cee-4dce-4df1-89dc-6d91b5a3a5db</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI585467</td>
+<td align="left"><a href="https://purl.org/germplasm/id/2b3438c6-8b3f-48d7-ad2b-cf3c7e8d48ec" class="uri">https://purl.org/germplasm/id/2b3438c6-8b3f-48d7-ad2b-cf3c7e8d48ec</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329286</td>
+<td align="left"><a href="https://purl.org/germplasm/id/bd4ccb9b-7a10-418d-acd4-fa5dda5a805f" class="uri">https://purl.org/germplasm/id/bd4ccb9b-7a10-418d-acd4-fa5dda5a805f</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI656065</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570075</td>
+<td align="left"><a href="https://purl.org/germplasm/id/861fa79c-400d-4a36-812b-694b06f54193" class="uri">https://purl.org/germplasm/id/861fa79c-400d-4a36-812b-694b06f54193</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569454</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d1c5e2d9-0a1d-41d8-b445-e980896aa6a6" class="uri">https://purl.org/germplasm/id/d1c5e2d9-0a1d-41d8-b445-e980896aa6a6</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563022</td>
+<td align="left"><a href="https://purl.org/germplasm/id/9c830d04-2c35-40c7-8350-f713629b7c6c" class="uri">https://purl.org/germplasm/id/9c830d04-2c35-40c7-8350-f713629b7c6c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI585954</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI569462</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI563002</td>
+<td align="left"><a href="https://purl.org/germplasm/id/73bbfc9e-c61a-4ec3-ada7-2a12b322692d" class="uri">https://purl.org/germplasm/id/73bbfc9e-c61a-4ec3-ada7-2a12b322692d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329478</td>
+<td align="left"><a href="https://purl.org/germplasm/id/aaf6fc36-1cbd-473f-b950-2243f4da5194" class="uri">https://purl.org/germplasm/id/aaf6fc36-1cbd-473f-b950-2243f4da5194</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI330199</td>
+<td align="left"><a href="https://purl.org/germplasm/id/beb6a6fe-78f2-488d-9f38-1aaf7b93a45d" class="uri">https://purl.org/germplasm/id/beb6a6fe-78f2-488d-9f38-1aaf7b93a45d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329541</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI569435</td>
+<td align="left"><a href="https://purl.org/germplasm/id/6ff039aa-8ee3-4faa-82dc-ff6d68c66899" class="uri">https://purl.org/germplasm/id/6ff039aa-8ee3-4faa-82dc-ff6d68c66899</a></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PI152860</td>
+<td align="left"><a href="https://purl.org/germplasm/id/b90f61d4-52cc-4015-89df-fd232b52276b" class="uri">https://purl.org/germplasm/id/b90f61d4-52cc-4015-89df-fd232b52276b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI562732</td>
+<td align="left"><a href="https://purl.org/germplasm/id/8a02dc27-3b07-48e0-bd5b-35bb029b590a" class="uri">https://purl.org/germplasm/id/8a02dc27-3b07-48e0-bd5b-35bb029b590a</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329702</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1ebb6706-a77c-46d2-bc0c-b98759dae434" class="uri">https://purl.org/germplasm/id/1ebb6706-a77c-46d2-bc0c-b98759dae434</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI562781</td>
+<td align="left"><a href="https://purl.org/germplasm/id/1145abd2-b0a4-4425-acda-256bea603200" class="uri">https://purl.org/germplasm/id/1145abd2-b0a4-4425-acda-256bea603200</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI641835</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f185d95d-cec0-4ddf-89c2-a1c2e041f580" class="uri">https://purl.org/germplasm/id/f185d95d-cec0-4ddf-89c2-a1c2e041f580</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI452692</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fe96ec09-a929-4e81-9c2c-8f15783f7467" class="uri">https://purl.org/germplasm/id/fe96ec09-a929-4e81-9c2c-8f15783f7467</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI570047</td>
+<td align="left"></td>
+<td align="left">TRUE</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PI641862</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5367bbe7-ccc0-4aa8-9f72-98f85c6e897c" class="uri">https://purl.org/germplasm/id/5367bbe7-ccc0-4aa8-9f72-98f85c6e897c</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI197542</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fec2048b-de47-4a97-aa96-b26b6c612800" class="uri">https://purl.org/germplasm/id/fec2048b-de47-4a97-aa96-b26b6c612800</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI452619</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a8380f3c-2b43-4c1e-9b26-175aca4e7d3b" class="uri">https://purl.org/germplasm/id/a8380f3c-2b43-4c1e-9b26-175aca4e7d3b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI535785</td>
+<td align="left"><a href="https://purl.org/germplasm/id/22484c33-6e65-48ef-8b2f-ba738c675569" class="uri">https://purl.org/germplasm/id/22484c33-6e65-48ef-8b2f-ba738c675569</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570042</td>
+<td align="left"><a href="https://purl.org/germplasm/id/5e79c252-de10-4645-ba38-9e14eaf2ec69" class="uri">https://purl.org/germplasm/id/5e79c252-de10-4645-ba38-9e14eaf2ec69</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI563009</td>
+<td align="left"><a href="https://purl.org/germplasm/id/d3738d12-56af-4426-8963-63215065eb0b" class="uri">https://purl.org/germplasm/id/d3738d12-56af-4426-8963-63215065eb0b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI535796</td>
+<td align="left"><a href="https://purl.org/germplasm/id/f1431a30-c0db-4473-810d-60b34ab158a8" class="uri">https://purl.org/germplasm/id/f1431a30-c0db-4473-810d-60b34ab158a8</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI155516</td>
+<td align="left"><a href="https://purl.org/germplasm/id/ba1bb40d-31b2-4ebb-9108-a92f31e59d1d" class="uri">https://purl.org/germplasm/id/ba1bb40d-31b2-4ebb-9108-a92f31e59d1d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329511</td>
+<td align="left"><a href="https://purl.org/germplasm/id/c47de13f-88fa-43f0-9e3c-3c1012db3b3d" class="uri">https://purl.org/germplasm/id/c47de13f-88fa-43f0-9e3c-3c1012db3b3d</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI154988</td>
+<td align="left"><a href="https://purl.org/germplasm/id/caa67665-b853-4ec9-ad8f-29ceee5a9fbf" class="uri">https://purl.org/germplasm/id/caa67665-b853-4ec9-ad8f-29ceee5a9fbf</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI570096</td>
+<td align="left"><a href="https://purl.org/germplasm/id/a8355488-6eed-4853-8d4b-3b864c914bbc" class="uri">https://purl.org/germplasm/id/a8355488-6eed-4853-8d4b-3b864c914bbc</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329545</td>
+<td align="left"><a href="https://purl.org/germplasm/id/fe5f2f64-e61a-4a0f-91e1-9c30f8fb064e" class="uri">https://purl.org/germplasm/id/fe5f2f64-e61a-4a0f-91e1-9c30f8fb064e</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI562985</td>
+<td align="left"><a href="https://purl.org/germplasm/id/3c9027b2-8bb6-4589-b8d1-74149324543b" class="uri">https://purl.org/germplasm/id/3c9027b2-8bb6-4589-b8d1-74149324543b</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">PI329699</td>
+<td align="left"><a href="https://purl.org/germplasm/id/29b1685d-d8bc-4f31-98ac-b781f34ff013" class="uri">https://purl.org/germplasm/id/29b1685d-d8bc-4f31-98ac-b781f34ff013</a></td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">PI329440</td>
+<td align="left"><a href="https://purl.org/germplasm/id/28d8a30a-616b-4e43-ae5a-51a426cdca49" class="uri">https://purl.org/germplasm/id/28d8a30a-616b-4e43-ae5a-51a426cdca49</a></td>
+<td align="left">NA</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody>
+</table>
+<!--chapter:end:germplasm.md-->
+</div>
+<div id="phenotypes-1" class="section level1">
+<h1>Phenotypes</h1>
+<div id="summary-of-available-phenotypes" class="section level2">
+<h2>Summary of Available Phenotypes</h2>
+<div id="plot-level-phenotype-data" class="section level3">
+<h3>Plot level phenotype data</h3>
+<p><em>files</em> * data/season_4_traits.csv.zip * data/season_6_traits.csv.zip</p>
+<p><em>format</em> csv with the following fields:</p>
+<ul>
+<li>plot</li>
+<li>lat</li>
+<li>lon</li>
+<li>scientificname</li>
+<li>genotype</li>
+<li>season</li>
+<li>treatment</li>
+<li>date</li>
+<li>time</li>
+<li>year</li>
+<li>month</li>
+<li>trait</li>
+<li>method</li>
+<li>mean</li>
+<li>checked: has this record been checked? 0 = No, 1 = Yes,</li>
+<li>notes</li>
+<li>author</li>
+<li>method_type</li>
+</ul>
+<pre><code>## Warning: 1125450 parsing failures.
+## row    col   expected                        actual                          file
+##   1 season an integer Season 4                      &#39;../data/season_4_traits.csv&#39;
+##   1 date   date like  2017 Sep 11 (America/Phoenix) &#39;../data/season_4_traits.csv&#39;
+##   1 time   time like  [time unspecified or unknown] &#39;../data/season_4_traits.csv&#39;
+##   2 season an integer Season 4                      &#39;../data/season_4_traits.csv&#39;
+##   2 date   date like  2017 Sep 11 (America/Phoenix) &#39;../data/season_4_traits.csv&#39;
+## ... ...... .......... ............................. .............................
+## See problems(...) for more details.</code></pre>
+<pre><code>## Warning: 242 parsing failures.
+##    row   col           expected                      actual                          file
+## 301155 notes 1/0/T/F/TRUE/FALSE flag leaf/mixed genotypes?? &#39;../data/season_6_traits.csv&#39;
+## 301156 notes 1/0/T/F/TRUE/FALSE flag leaf/mixed genotypes?? &#39;../data/season_6_traits.csv&#39;
+## 301157 notes 1/0/T/F/TRUE/FALSE flag leaf/mixed genotypes?? &#39;../data/season_6_traits.csv&#39;
+## 301158 notes 1/0/T/F/TRUE/FALSE flag leaf/mixed genotypes?? &#39;../data/season_6_traits.csv&#39;
+## 301160 notes 1/0/T/F/TRUE/FALSE flag leaf/lodging east row  &#39;../data/season_6_traits.csv&#39;
+## ...... ..... .................. ........................... .............................
+## See problems(...) for more details.</code></pre>
+</div>
+</div>
+<div id="sensor-derived-phenotypes" class="section level2">
+<h2>Sensor Derived Phenotypes</h2>
+<p>The following records were generated from sensors by algorithms:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+trait
+</th>
+<th style="text-align:left;">
+method
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+surface_temperature
+</td>
+<td style="text-align:left;">
+Mean temperature from infrared images
+</td>
+<td style="text-align:right;">
+501295
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+canopy_cover
+</td>
+<td style="text-align:left;">
+Green Canopy Cover Estimation from Field Scanner RGB images
+</td>
+<td style="text-align:right;">
+165347
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+canopy_height
+</td>
+<td style="text-align:left;">
+3D scanner to 98th quantile height
+</td>
+<td style="text-align:right;">
+85755
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_angle_alpha
+</td>
+<td style="text-align:left;">
+3D scanner to leaf angle distribution
+</td>
+<td style="text-align:right;">
+68348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_angle_beta
+</td>
+<td style="text-align:left;">
+3D scanner to leaf angle distribution
+</td>
+<td style="text-align:right;">
+68348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_angle_chi
+</td>
+<td style="text-align:left;">
+3D scanner to leaf angle distribution
+</td>
+<td style="text-align:right;">
+68348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_angle_mean
+</td>
+<td style="text-align:left;">
+3D scanner to leaf angle distribution
+</td>
+<td style="text-align:right;">
+68348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_length
+</td>
+<td style="text-align:left;">
+3D scanner to leaf length and width
+</td>
+<td style="text-align:right;">
+48954
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_width
+</td>
+<td style="text-align:left;">
+3D scanner to leaf length and width
+</td>
+<td style="text-align:right;">
+48954
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+panicle_count
+</td>
+<td style="text-align:left;">
+3D scanner to panicle count faster_rcnn + roughness threshold + convex hull
+</td>
+<td style="text-align:right;">
+7057
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+panicle_surface_area
+</td>
+<td style="text-align:left;">
+3D scanner to panicle count faster_rcnn + roughness threshold + convex hull
+</td>
+<td style="text-align:right;">
+7057
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+panicle_volume
+</td>
+<td style="text-align:left;">
+3D scanner to panicle count faster_rcnn + roughness threshold + convex hull
+</td>
+<td style="text-align:right;">
+7057
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+canopy_height
+</td>
+<td style="text-align:left;">
+Scanner 3d ply data to height
+</td>
+<td style="text-align:right;">
+5881
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+emergence_count
+</td>
+<td style="text-align:left;">
+Stereo RGB data to emergence count
+</td>
+<td style="text-align:right;">
+3412
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+trait
+</th>
+<th style="text-align:left;">
+method
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+canopy_height
+</td>
+<td style="text-align:left;">
+Manual canopy height
+</td>
+<td style="text-align:right;">
+6501
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_desiccation_present
+</td>
+<td style="text-align:left;">
+Visual assessment of leaf dessication
+</td>
+<td style="text-align:right;">
+4200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_temperature
+</td>
+<td style="text-align:left;">
+temperature of sunlit leaf with [instrument name]
+</td>
+<td style="text-align:right;">
+4013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lodging_present
+</td>
+<td style="text-align:left;">
+Plant lodging incidence - Presence estimation
+</td>
+<td style="text-align:right;">
+3500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stem_elongated_internodes_number
+</td>
+<td style="text-align:left;">
+Stem elongated internodes and basal tillers counts - visual repeat measures on marked plants
+</td>
+<td style="text-align:right;">
+1800
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_730
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_850
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_880
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_940
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ambient_humidity
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FmPrime
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FoPrime
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fs
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FvP/FmP
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_angle_clamp_position
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_temperature_differential
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_thickness
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LEF
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+light_intensity_PAR
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NPQt
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Phi2
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhiNO
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhiNPQ
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pitch
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proximal_air_temperature
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+qL
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+relative_chlorophyll
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RFd
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+roll
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_530
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_605
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_650
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_730
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_850
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_880
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1780
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_530
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPAD_420
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+qP
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1777
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_605
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1765
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ECSt
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gH+
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vH+
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+1659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aboveground_fresh_biomass
+</td>
+<td style="text-align:left;">
+Aboveground fresh biomass at harvest
+</td>
+<td style="text-align:right;">
+1432
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aboveground_biomass_moisture
+</td>
+<td style="text-align:left;">
+Whole above ground biomass moisture content
+</td>
+<td style="text-align:right;">
+1413
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aboveground_dry_biomass
+</td>
+<td style="text-align:left;">
+Whole above ground biomass at harvest
+</td>
+<td style="text-align:right;">
+1412
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+planter_seed_drop
+</td>
+<td style="text-align:left;">
+Planter seed drop count
+</td>
+<td style="text-align:right;">
+1400
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stand_count
+</td>
+<td style="text-align:left;">
+Seedling number - Counting
+</td>
+<td style="text-align:right;">
+1400
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+emergence_count
+</td>
+<td style="text-align:left;">
+plant emergence counts
+</td>
+<td style="text-align:right;">
+1118
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+seedling_emergence_rate
+</td>
+<td style="text-align:left;">
+Seedling emergence rate count
+</td>
+<td style="text-align:right;">
+1118
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_stomatal_conductance
+</td>
+<td style="text-align:left;">
+Leaf surface temperature and stomatal conductance estimates using hand-held instruments
+</td>
+<td style="text-align:right;">
+923
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_length
+</td>
+<td style="text-align:left;">
+MAC leaf length measurement
+</td>
+<td style="text-align:right;">
+868
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+harvest_lodging_rating
+</td>
+<td style="text-align:left;">
+Visual assessment of lodging at harvest on scale of 0, 1, or 2.
+</td>
+<td style="text-align:right;">
+725
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dry_matter_fraction
+</td>
+<td style="text-align:left;">
+Biomass oven drying
+</td>
+<td style="text-align:right;">
+719
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+leaf_width
+</td>
+<td style="text-align:left;">
+MAC leaf width measurement
+</td>
+<td style="text-align:right;">
+704
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_650
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+644
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+plant_basal_tiller_number
+</td>
+<td style="text-align:left;">
+Plant basal tiller number - Counting
+</td>
+<td style="text-align:right;">
+540
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stalk_diameter_fixed_height
+</td>
+<td style="text-align:left;">
+Stalk diameter measurement
+</td>
+<td style="text-align:right;">
+471
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+canopy_cover
+</td>
+<td style="text-align:left;">
+Canopy cover estimation from ground-based conventional photographs
+</td>
+<td style="text-align:right;">
+435
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+panicle_height
+</td>
+<td style="text-align:left;">
+Panicle height measurement
+</td>
+<td style="text-align:right;">
+392
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anthocyanin_index
+</td>
+<td style="text-align:left;">
+Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chlorophyll_index
+</td>
+<td style="text-align:left;">
+Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+flavonol_index
+</td>
+<td style="text-align:left;">
+Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NBI_nitrogen_balance_index
+</td>
+<td style="text-align:left;">
+Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stalk_diameter_major_axis
+</td>
+<td style="text-align:left;">
+Stalk diameter measurement
+</td>
+<td style="text-align:right;">
+180
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stalk_diameter_minor_axis
+</td>
+<td style="text-align:left;">
+Stalk diameter measurement
+</td>
+<td style="text-align:right;">
+180
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+flag_leaf_emergence_time
+</td>
+<td style="text-align:left;">
+Visual classification of sorghum growth stages to determine estimates of developmental timing
+</td>
+<td style="text-align:right;">
+176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+flowering_time
+</td>
+<td style="text-align:left;">
+Visual classification of sorghum growth stages to determine estimates of developmental timing
+</td>
+<td style="text-align:right;">
+156
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+grain_stage_time
+</td>
+<td style="text-align:left;">
+Visual classification of sorghum growth stages to determine estimates of developmental timing
+</td>
+<td style="text-align:right;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+absorbance_420
+</td>
+<td style="text-align:left;">
+MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+</tbody>
+</table>
+<!--chapter:end:phenotypes.Rmd-->
+</div>
+</div>
+<div id="weather" class="section level1">
+<h1>Weather</h1>
+<p>We have data from two stations, AZMet and the gantry system. Station information is provided in</p>
+<div id="geostreams-weather" class="section level2">
+<h2>Geostreams Weather</h2>
+<p>These data are from the Theis-Clima weather station mounted on the field scanner. While there are gaps, there are many variables that are otherwise not available.</p>
+<pre><code>## Warning: Removed 7767 rows containing missing values
+## (geom_point).</code></pre>
+<p><img src="Dryad-README_files/figure-html/weather-plots-1.png" width="672" /></p>
+<div id="environment-logger" class="section level3">
+<h3>Environment Logger</h3>
+<p>These are even higher resolution time series.</p>
+<p>The files for each season are approximately 40GB and, like sensor data, are provided using methods such as Globus transfer or the Clowder API (see “How To Access Data” in the <a href="https://docs.terraref.org/user-manual/how-to-access-data">documentation</a>). On Globus, they are in the <code>/ua-mac/Level_1/envlog_netcdf/</code></p>
+<p>The data are described in the TERRA REF documentation under the environmental data section of the <a href="https://docs.terraref.org/user-manual/data-products/environmental-conditions">data products chapter</a>.</p>
+<p>The primary reason that these files are so large is that they contain Here, I am assuming that these have been downloaded to a folder named <code>~/data/ua-mac/Level_1/envlog_netcdf/</code> the following will work:</p>
+</div>
+</div>
+<div id="az-met-weather-brown-et-al-1996" class="section level2">
+<h2>AZ Met weather (Brown et al 1996)</h2>
+<p><strong>It is require to cite</strong> “Brown, P. W., &amp; Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: <a href="https://cals.arizona.edu/AZMET/" class="uri">https://cals.arizona.edu/AZMET/</a>” when using these data.</p>
+<p><img src="Dryad-README_files/figure-html/azmet_plots-1.png" width="672" /></p>
+<pre><code>## Warning: Missing column names filled in: &#39;X29&#39; [29]
+
+## Warning: Missing column names filled in: &#39;X29&#39; [29]</code></pre>
+<!--chapter:end:weather.Rmd-->
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

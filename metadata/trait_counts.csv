@@ -1,4 +1,4 @@
-trait,method_name,n
+trait,method,n
 aboveground_biomass_moisture,Whole above ground biomass moisture content,1413
 aboveground_dry_biomass,Whole above ground biomass at harvest,1412
 aboveground_fresh_biomass,Aboveground fresh biomass at harvest,1432
@@ -13,10 +13,10 @@ absorbance_940,MultispeQ v1.0 field measurements of fluorescence-based and absor
 ambient_humidity,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1780
 anthocyanin_index,Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter,198
 canopy_cover,Canopy cover estimation from ground-based conventional photographs,435
-canopy_cover,Green Canopy Cover Estimation from Field Scanner RGB images,110637
-canopy_height,3D scanner to 98th quantile height,89468
-canopy_height,Manual canopy height,4730
-canopy_height,Scanner 3d ply data to height,3939
+canopy_cover,Green Canopy Cover Estimation from Field Scanner RGB images,165347
+canopy_height,3D scanner to 98th quantile height,85755
+canopy_height,Manual canopy height,6501
+canopy_height,Scanner 3d ply data to height,5881
 chlorophyll_index,Leaf polyphenolics and chlorophyll measurements: Dualex Scientific+ leaf-clip handheld optical meter,198
 dry_matter_fraction,Biomass oven drying,719
 ECSt,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1659
@@ -38,14 +38,14 @@ leaf_angle_chi,3D scanner to leaf angle distribution,68348
 leaf_angle_clamp_position,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1780
 leaf_angle_mean,3D scanner to leaf angle distribution,68348
 leaf_desiccation_present,Visual assessment of leaf dessication,4200
-leaf_length,3D scanner to leaf length and width,30918
-leaf_length,MAC leaf length measurement,806
+leaf_length,3D scanner to leaf length and width,48954
+leaf_length,MAC leaf length measurement,868
 leaf_stomatal_conductance,Leaf surface temperature and stomatal conductance estimates using hand-held instruments,923
 leaf_temperature,temperature of sunlit leaf with [instrument name],4013
 leaf_temperature_differential,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1780
 leaf_thickness,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1780
-leaf_width,3D scanner to leaf length and width,30846
-leaf_width,MAC leaf width measurement,714
+leaf_width,3D scanner to leaf length and width,48954
+leaf_width,MAC leaf width measurement,704
 LEF,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1780
 light_intensity_PAR,MultispeQ v1.0 field measurements of fluorescence-based and absorbance-based parameters,1780
 lodging_present,Plant lodging incidence - Presence estimation,3500

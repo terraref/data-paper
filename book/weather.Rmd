@@ -1,0 +1,89 @@
+# Weather
+
+We have data from two stations, AZMet and the gantry system. Station information is provided in 
+
+
+## Geostreams Weather
+
+These data are from the Theis-Clima weather station mounted on the field scanner. While there are gaps, there are many variables that are otherwise not available.
+
+```{r geostreams}
+library(dplyr)
+library(ggplot2)
+library(jsonlite)
+library(lubridate)
+library(tidyr)
+s4_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2017-04-20&until=2017-09-18', flatten = FALSE)
+
+s6_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2018-04-06&until=2018-08-01', flatten = FALSE)
+
+s4 <- data.frame(season = "Season 4", 
+                 date = ymd_hms(s4_raw$start_time),
+                 s4_raw$properties)
+s6 <- data.frame(season = "Season 6", 
+                 date = ymd_hms(s6_raw$start_time),
+                 s6_raw$properties)
+
+weather <- rbind(s4, s6) %>% 
+  dplyr::select(-starts_with('source')) %>% 
+  tidyr::pivot_longer(cols = -c(season,date))
+
+```
+
+
+```{r weather-plots, fig.height=12}
+ggplot(data = weather, aes(date, value)) +
+  geom_point(size = 0.1) +
+  facet_wrap(vars(name, season), scales = 'free', ncol = 2)
+```
+
+### Environment Logger
+
+These are even higher resolution time series.
+
+The files for each season are approximately 40GB and, like sensor data, are provided using methods such as Globus transfer or the Clowder API (see "How To Access Data" in the [documentation](https://docs.terraref.org/user-manual/how-to-access-data)). On Globus, they are in the `/ua-mac/Level_1/envlog_netcdf/`
+
+The data are described in the TERRA REF documentation under the environmental data section of the [data products chapter](https://docs.terraref.org/user-manual/data-products/environmental-conditions).
+
+The primary reason that these files are so large is that they contain 
+Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/` the following will work:
+
+```{r}
+data_dir <- '~/data/ua-mac/Level_1/envlog_netcdf/'
+
+
+```
+
+## AZ Met weather (Brown et al 1996)
+
+**It is require to cite** "Brown, P. W., & Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: https://cals.arizona.edu/AZMET/" when using these data.
+
+
+```{r}
+azmet_s4_hr <- readr::read_csv('../data/weather/azmet_season_4_hourly.csv') %>% 
+  mutate(season = 'Season 4')
+azmet_s6_hr<- readr::read_csv('../data/weather/azmet_season_6_hourly.csv') %>% 
+  mutate(season = 'Season 6')
+
+azmet_hr <- rbind(azmet_s4_hr, azmet_s6_hr) %>% 
+  mutate(date = as.Date(day_of_year - 1, 
+                        origin = paste0(year, '-01-01'))) %>% 
+  mutate(datetime = lubridate::ymd_h(paste(as.character(date), hour_of_day))) %>% 
+  tidyr::pivot_longer(cols = air_temp:dewpoint)
+
+
+```
+
+
+```{r azmet_plots, fig.height=20}
+
+ggplot(data = azmet_hr, aes(datetime, value)) +
+  geom_point(size = 0.1) +
+  facet_wrap(vars(name, season), scales = 'free', ncol = 2)
+
+```
+
+```{r}
+s4_d <- readr::read_csv('../data/weather/azmet_season_4_daily.csv')
+s6_d<- readr::read_csv('../data/weather/azmet_season_6_daily.csv')
+```
