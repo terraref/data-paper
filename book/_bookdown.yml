@@ -4,7 +4,8 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
-rmd_subdir: "book/"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+#rmd_subdir: "book/"
 rmd_files: [
 "index.Rmd",
 "abstract.md",
