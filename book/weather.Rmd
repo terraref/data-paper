@@ -14,7 +14,9 @@ library(jsonlite)
 library(lubridate)
 library(tidyr)
 s4_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2017-04-20&until=2017-09-18', flatten = FALSE)
-
+s4_raw <- fromJSON('../metadata/weather/envlog_json/season_4_envlog.json', flatten = FALSE)
+getwd()
+file <- '../metadata/ARPA-E_311_Full_App_FOA_TERRA_MOD_02_FINAL.pdf
 s6_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2018-04-06&until=2018-08-01', flatten = FALSE)
 
 s4 <- data.frame(season = "Season 4", 
@@ -26,7 +28,8 @@ s6 <- data.frame(season = "Season 6",
 
 weather <- rbind(s4, s6) %>% 
   dplyr::select(-starts_with('source')) %>% 
-  tidyr::pivot_longer(cols = -c(season,date))
+  tidyr::pivot_longer(cols = -c(season,date)) %>% 
+ 
 
 ```
 
@@ -46,18 +49,19 @@ The files for each season are approximately 40GB and, like sensor data, are prov
 The data are described in the TERRA REF documentation under the environmental data section of the [data products chapter](https://docs.terraref.org/user-manual/data-products/environmental-conditions).
 
 The primary reason that these files are so large is that they contain 
-Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/` the following will work:
+Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`. For convenience, this directory contains both hourly files named `YYYY-MM-DD_HH_MM_SS_environmentallogger.nc` and daily files named `envlog_netcdf_L1_ua-mac_YYYY-MM-DD.nc`.
 
 ```{r}
-data_dir <- '~/data/ua-mac/Level_1/envlog_netcdf/'
+data_dir <- '../metadata/weather/envlog_netcdf/'
 
 
 ```
 
 ## AZ Met weather (Brown et al 1996)
 
-**It is require to cite** "Brown, P. W., & Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: https://cals.arizona.edu/AZMET/" when using these data.
+These gap-filled and corrected data have been provided for convenience. **It is require to cite** "Brown, P. W., & Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: https://cals.arizona.edu/AZMET/" when using these data. 
 
+Both hourly and daily values are available, and can be found in the `metadata/weather/azmet` folder. There are four csv files - one daily and one hourly for each season, and a README that provides a description of their content. These files have not been modified from the website other than to subset it to the time range of the two seasons of observations.
 
 ```{r}
 azmet_s4_hr <- readr::read_csv('../data/weather/azmet_season_4_hourly.csv') %>% 
@@ -84,6 +88,21 @@ ggplot(data = azmet_hr, aes(datetime, value)) +
 ```
 
 ```{r}
-s4_d <- readr::read_csv('../data/weather/azmet_season_4_daily.csv')
-s6_d<- readr::read_csv('../data/weather/azmet_season_6_daily.csv')
+s4_d <- readr::read_csv(file = '~/dev/terraref-dryad/metadata/weather/azmet/azmet_2017_daily.csv', 
+                        col_names = c('year', 'day_of_year', 'station', 'tmax', 'tmin', 'tmean', 'rhmax', 'rhmin', 'rhmean', 'vpdmean', 'solarrad_total', 'precip')) %>% mutate(season = 'Season 4')
+s6_d<- readr::read_csv('~/dev/terraref-dryad/metadata/weather/azmet/azmet_2018_daily.csv', , 
+                        col_names = c('year', 'day_of_year', 'station', 'tmax', 'tmin', 'tmean', 'rhmax', 'rhmin', 'rhmean', 'vpdmean', 'solarrad_total', 'precip'))%>% mutate(season = 'Season 6')
+
+
+
+azmet_d <- rbind(s4_d, s6_d) %>% 
+  mutate(date = as.Date(day_of_year - 1, 
+                        origin = paste0(year, '-01-01'))) %>% 
+  tidyr::pivot_longer(cols = tmax:precip)
+
+ggplot(data = azmet_d %>% filter(season == 'Season 6'), aes(date, value)) +
+  geom_point(size = 0.1) +
+  facet_wrap(vars(name#, season
+                  ), scales = 'free_y', ncol = 3)
+
 ```
