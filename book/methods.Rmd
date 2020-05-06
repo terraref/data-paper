@@ -5,6 +5,27 @@ editor_options:
 ---
 # Methods
 
+## Site
+
+
+<!--
+# Code to generate maps:
+# https://gist.github.com/dlebauer/c303980b3a71675d02184caf6bd01ea9
+# https://gist.github.com/dlebauer/e377cd3f53b2fa84809be30247737ba4
+-->
+
+
+
+```{r se-map, include = TRUE, fig.margin = TRUE, fig.cap = "Location of the Maricopa Agricultural Center", out.width='100%'}
+knitr::include_graphics('book/figures/site_location_se_us.png')
+```
+
+```{r field-map, include = TRUE, fig.margin = TRUE, fig.cap = "Location of the Field Scanner Field relative to the USDA Arid Land Agricultural Research Center (top right) and Maricopa Agricultural Center (bottom right)", out.width='100%'}
+knitr::include_graphics('book/figures/gantry_field.png')
+```
+
+The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(fig:field-map).
+
 ## Experimental Design
 
 The first data release contains data from two Sorghum growing seasons, the 4th and 6th seasons of the project:  
@@ -187,14 +208,8 @@ s6 <- dplyr::bind_rows(s6) %>%
 
 s46 <- dplyr::bind_rows(s4, s6)
 
-
-sensor_methods <- c("Green Canopy Cover Estimation from Field Scanner RGB images", 
-                    "3D scanner to 98th quantile height", "Scanner 3d ply data to height", 
-                    "Stereo RGB data to emergence count", "3D scanner to leaf angle distribution", 
-                    "3D scanner to leaf length and width", "3D scanner to panicle count faster_rcnn + roughness threshold + convex hull", "Mean temperature from infrared images")
-
 s46_subset <- s46 %>% 
-  dplyr::select(plot, lat, lon, scientificname, genotype, season, treatment, date, time, year, month, trait, method, mean, checked, notes, author) %>% 
+  dplyr::select(plot, scientificname, genotype, season, treatment, date, trait, method, mean, checked, notes, author) %>% 
   dplyr::mutate(method_type = ifelse(method %in% sensor_methods, 'sensor', 'manual'))
 
 readr::write_csv(
