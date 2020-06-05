@@ -51,11 +51,6 @@ The data are described in the TERRA REF documentation under the environmental da
 The primary reason that these files are so large is that they contain 
 Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`. For convenience, this directory contains both hourly files named `YYYY-MM-DD_HH_MM_SS_environmentallogger.nc` and daily files named `envlog_netcdf_L1_ua-mac_YYYY-MM-DD.nc`.
 
-```{r}
-data_dir <- '../metadata/weather/envlog_netcdf/'
-
-
-```
 
 ## AZ Met weather (Brown et al 1996)
 
