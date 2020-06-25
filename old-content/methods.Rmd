@@ -20,7 +20,7 @@ editor_options:
 knitr::include_graphics('book/figures/site_location_se_us.png')
 ```
 
-```{r field-map, include = TRUE, fig.margin = TRUE, fig.cap = "Location of the Field Scanner Field relative to the USDA Arid Land Agricultural Research Center (top right) and Maricopa Agricultural Center (bottom right)", out.width='100%'}
+```{r field-map, include = TRUE, fig.margin = TRUE, fig.cap = "", out.width='100%'}
 knitr::include_graphics('book/figures/gantry_field.png')
 ```
 
@@ -28,7 +28,6 @@ The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(f
 
 ## Experimental Design
 
-The first data release contains data from two Sorghum growing seasons, the 4th and 6th seasons of the project:  
 
 ```{r experiments, cache = TRUE}
 experiments <- tbl(bety_src, 'experiments') %>%
@@ -176,8 +175,6 @@ writeLines(germplasm_text, '../book/germplasm.md')
 ```
 
 ## List of Phenotypes and How They Were Measured
-
-Some were measured by sensor, and others were measured by hand.
 
 ```{r methods}
 # Using traits package
