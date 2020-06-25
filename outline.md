@@ -60,7 +60,26 @@ The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(f
 
 - Figures: example from each sensor. Each should have measurement bar
 
+* Stereo RGB
+  * Zoomed in
+    * Sunlit
+    * Shaded
+  * Mask
+  * Plot level Clip
+  * Field Mosaic
+* FLIR
+  * Zoomed in
+  * Plot Level Clip
+  * Field Mosaic
+* Laser 3D
+  * Zoomed in 
+  * Plot Level Clip
+* PS II
+  * Zoomed in
+  * Time Series
+  
 ## Weather / Environment
+
 
 ### Soil 
 
@@ -68,7 +87,11 @@ Cite Markus' paper
 
 ### Geostreams
 
+* Figure: Time series for each variable
+
 ### netCDF
+
+* Figure: High res spectra
 
 ## Phenotypes
 
@@ -76,13 +99,12 @@ Cite Markus' paper
   - time series plot of each phenotype
   - time series plot of P-values for each phenotype (combine w/above as second panel)
 
-
 # Technical Validation
 
 - what has been done - technical analyses that quantify quality of measurements
   - Maria's proceedures
   - visualization 
-      - (fullfield, 
+      - fullfield, 
       - traitvis, 
       - plot overlaps https://github.com/terraref/reference-data/issues/194
   - what has max done?
@@ -93,7 +115,6 @@ Cite Markus' paper
 
 - final acceptance tests
 - regular use
-
 
 ### Laser Scanner
 
@@ -126,8 +147,6 @@ https://www.overleaf.com/project/5d41e787eb35bf4afc09152e
 - figure: mis-alignment of fullfield mosaic
 - figure: errors in separating plant from soil 
 - figure: from Max, GitHub illustrating limitations
-
-
 
 # Useage Notes
 
