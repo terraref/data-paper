@@ -99,6 +99,7 @@ Cite Markus' paper
 
 - laser height described here: https://github.com/terraref/reference-data/issues/263
 - laser calibration point cloud issues https://github.com/terraref/reference-data/issues/254
+  - only Left 3D sensor is affected. Recalibration was implemented Nov 2019 but data has not been reprocessed
 
 ### FLIR
 
