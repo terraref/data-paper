@@ -46,9 +46,23 @@ The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(f
 
 ## Phenotypes
 
-### Sensor-Derived
+### Sensor-Derived Phenotypes
 
-### Manually Measured
+
+* Surface Temperature measurements are not included in the dataset. https://github.com/terraref/reference-data/issues/284
+  * do not have time associated with measurement, so it is not possible to compute the temperature difference relative to the air temperature
+  * integrate over soil and leaf, so the data are only useful after canopy closure.
+
+### Manually Measured Phenotypes
+
+#### Season 6 intensive field sampling 
+
+
+* Poromoter (Decagon SC-1) and MultispeQ.
+* MultispeQ hand-held (fluorometer, chlorophyll meter, spectrometer, leaf and ambient temps)
+
+Protocols described here: https://www.protocols.io/edit/multi-sensor-stomatal-regulation-field-campaign-bhxej7je
+
 
 ## Data Processing Pipeline
 
@@ -60,21 +74,40 @@ The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(f
 
 - Figures: example from each sensor. Each should have measurement bar
 
-* Stereo RGB
+### Stereo RGB
+
+* Stereo RGB Figures
   * Zoomed in
     * Sunlit
     * Shaded
   * Mask
   * Plot level Clip
   * Field Mosaic
-* FLIR
+
+#### RGB Known Errors and Limitations
+
+- figure: mis-alignment of fullfield mosaic
+- figure: errors in separating plant from soil 
+- figure: from Max, GitHub illustrating limitations
+
+### Laser 3D
+
+* Laser 3D Figures
+  * Zoomed in 
+  * Plot Level Clip
+
+
+### FLIR 
+
+* FLIR Figures
   * Zoomed in
   * Plot Level Clip
   * Field Mosaic
-* Laser 3D
-  * Zoomed in 
-  * Plot Level Clip
-* PS II
+
+
+### PS II 
+
+* PS II Figures
   * Zoomed in
   * Time Series
   
@@ -109,27 +142,41 @@ Cite Markus' paper
       - plot overlaps https://github.com/terraref/reference-data/issues/194
   - what has max done?
 - what has not been done
-- known errors https://github.com/terraref/reference-data/issues?q=label%3Akind%2Fqaqc+
+
 
 ## Standards and Targets
 
 - final acceptance tests
 - regular use
 
-### Laser Scanner
+### Stereo RGB {#rgb-qaqc}
 
-- laser height described here: https://github.com/terraref/reference-data/issues/263
-- laser calibration point cloud issues https://github.com/terraref/reference-data/issues/254
+
+#### Laser 3D Known Errors and Limitations {#laser3d-qaqc}
+
+
+- laser calibration point cloud issues https://github.com/terraref/reference-data/issues/263#issuecomment-482639110
   - only Left 3D sensor is affected. Recalibration was implemented Nov 2019 but data has not been reprocessed
+- Curvature
+  - East and west laser scanner issue https://github.com/terraref/reference-data/issues/254
+- temperature correction 
 
-### FLIR
+
+- laser height and scans on April 21, 2019 described here: https://github.com/terraref/reference-data/issues/263
+  - contents/figures/laser_3d_tests.png
+
+### FLIR {#flir-qaqc}
+
+Currently we only generate FLIR GeoTIFF files because there are a number of outstanding issues with the calibration and quality of data from this sensor.
 
 - Image Deterioration mid-scan https://github.com/terraref/reference-data/issues/247
-- In order to produce useful data, there needs to be a soil mask and the correct time of capture so that data can be aligned with air temperature https://github.com/terraref/reference-data/issues/284
+  - this may be due to a single bad pixel with a value of 1 at x=343, y = 259
+- In order to produce useful plot level phenotypes: there needs to be a soil mask and the correct time of capture so that data can be aligned with air temperature https://github.com/terraref/reference-data/issues/284
 
 
-## Visualization 
+### PS II {#ps2-qaqc}
 
+### Hyperspectral Cameras (VNIR and SWIR) {#vnir-swir-qaqc}
 ## Database constraints
 
 https://www.overleaf.com/project/5d41e787eb35bf4afc09152e
@@ -142,11 +189,7 @@ https://www.overleaf.com/project/5d41e787eb35bf4afc09152e
 
 ## Cross-Comparison with other measurements
 
-## Assumptions, Errors, and Limits 
 
-- figure: mis-alignment of fullfield mosaic
-- figure: errors in separating plant from soil 
-- figure: from Max, GitHub illustrating limitations
 
 # Useage Notes
 
