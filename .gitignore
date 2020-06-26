@@ -6,3 +6,4 @@ book/_bookdown_files/*
 .DS_Store
 docs/*
 *.html
+*.pgw
