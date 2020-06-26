@@ -53,6 +53,18 @@ The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(f
   * do not have time associated with measurement, so it is not possible to compute the temperature difference relative to the air temperature
   * integrate over soil and leaf, so the data are only useful after canopy closure.
 
+
+#### Canopy Cover
+
+https://github.com/terraref/extractors-stereo-rgb/tree/master/canopycover
+
+
+#### Emergence Detection 
+
+https://github.com/terraref/extractors-stereo-rgb/tree/master/emergence_detection
+
+Based on faster_rcnn_pytorch
+
 ### Manually Measured Phenotypes
 
 #### Season 6 intensive field sampling 
@@ -107,10 +119,22 @@ Protocols described here: https://www.protocols.io/edit/multi-sensor-stomatal-re
 
 ### PS II 
 
+It looks like each snapshot is 101 images (Frames 0 - 100), a JSON metadata file, and an XML metadata file that contains the (presumably) Unix time of each frame. Based on my understanding of how the PSII system works at DDPSC, I think frame 0 is the F-dark image, taken before the light pulse, which can be used to remove background signal from the other frames. Frame 1 should be the first image taken after the light pulse, so it's the minimal fluorescence image (F-min or F0). Each successive frame can be used to measure the response of PSII to the light pulse, plateauing at the maximal fluorescence (F-max).
+
+
 * PS II Figures
   * Zoomed in
   * Time Series
-  
+  * parameters https://terraref.ncsa.illinois.edu/clowder/datasets/5936a3ad4f0c0ead2da27389 https://github.com/terraref/computing-pipeline/issues/216
+
+We generate png files for the time series. But we have not processed the parameters due to outstanding issues (see ps2-qaqc).
+https://github.com/terraref/extractors-multispectral/tree/master/psii2png
+
+Code for computing statistics is in https://github.com/terraref/extractors-multispectral/tree/master/psii_fluorescence \@ref{}
+}
+
+Herrit et al (ref) have done some validation using this instrument () but data are not available; see also limitations {ps2-qaqc}
+
 ## Weather / Environment
 
 
@@ -151,6 +175,40 @@ Cite Markus' paper
 
 ### Stereo RGB {#rgb-qaqc}
 
+1. Any stitched image introduces new artifacts into the image data; it always introduces edges at the boundary of where one image turns into another --- either an explicitly black line boundary or an implicit boundary that is there because you can't exactly stitch images of a complicated 3D world (without making a full 3D model). Even if you could stitch them, the same bit of the world is usually a different brightness when viewed from different directions.
+2. The stitched full field image may have artifacts that arise from harsh shadows in some imaging conditions.
+3. One of the artifacts is duplication of area, this is unavoidable without a much more complex stitching algorithm that implicitly infers the 3D structure of the ground. The justification for not going for such a rich representation is that:
+  1. for the plants, since they move, it would be impossible not to have artifacts at the edges of the image, and
+  2. for the ground, we judged that small stitching errors were not worth the (substantial) additional effort to build the more complete model.
+
+#### Full Field Mosaic 
+
+In addition to computing canopy cover, the primary use of the full field mosaic is evaluating data quality and valid sensor operation
+
+- Understanding what part of the field was imaged,
+- Understanding if the imaging script is correctly capturing the plots (in the context of not imaging the whole field), or if there is a problem it is missing some of the plots.
+- Understanding if the image capture has good lighting, no motion blur, etc.
+
+The stitched image is _not appropriate_ for some analyses
+
+One of the image stitching artifacts is duplication of area, this is unavoidable without a much more complex stitching algorithm that implicitly infers the 3D structure of the ground. The justification for not going for such a rich representation is that:
+* for the plants, since they move, it would be impossible not to have artifacts at the edges of the image, and
+* for the ground, I judged that small stitching errors were not worth the (substantial) additional effort to build the more complete model.
+
+
+- Any stitched image introduces new artifacts into the image data; it always introduces edges at the boundary of where one image turns into another --- either an explicitly black line boundary or an implicit boundary that is there because you can't exactly stitch images of a complicated 3D world (without making a full 3D model).  Even if you could stitch them (say, it is just flat dirt), the same bit of the world is usually a different brightness when viewed from different directions.
+- The particular stitching strategy of "choose the darker pixel" is a nice way to automatically choose a good image when there is bright sunshine effects.  It may create additional artifacts because the algorithm is allowed to integrate pixels from both images in potentially complicated patterns.  These artifacts may be hard to account for.
+- The alternative is to always to all initial feature selection or image analysis on the original images, and to then create derived features or extracted features from those images and save those derived or extracted features per plot.
+
+
+Related Issues and Discussions
+
+* Review of RGB Full Field extractor https://github.com/terraref/reference-data/issues/183
+* Dealing with sun/shade https://github.com/terraref/computing-pipeline/issues/326
+* Robert Pless https://github.com/terraref/computing-pipeline/issues/326#issuecomment-314895910,
+https://github.com/terraref/computing-pipeline/issues/326#issuecomment-314592669, https://github.com/terraref/reference-data/issues/183#issuecomment-330697397
+
+
 
 #### Laser 3D Known Errors and Limitations {#laser3d-qaqc}
 
@@ -170,13 +228,19 @@ Cite Markus' paper
 Currently we only generate FLIR GeoTIFF files because there are a number of outstanding issues with the calibration and quality of data from this sensor.
 
 - Image Deterioration mid-scan https://github.com/terraref/reference-data/issues/247
-  - this may be due to a single bad pixel with a value of 1 at x=343, y = 259
+  - this appears be due to a single bad pixel with a value of 1 at x=343, y = 259. The issue was intermittent and appeared to be related to high temperatures. 
 - In order to produce useful plot level phenotypes: there needs to be a soil mask and the correct time of capture so that data can be aligned with air temperature https://github.com/terraref/reference-data/issues/284
 
 
 ### PS II {#ps2-qaqc}
 
+* light may not be sufficient to saturate photosystem 
+* Flourescence response is a function of distance ($F~1/distance^2$) https://github.com/terraref/computing-pipeline/issues/216
+* How to subset image (use only brightest pixels? Correct for distance and leaf orientation?)
+
+
 ### Hyperspectral Cameras (VNIR and SWIR) {#vnir-swir-qaqc}
+
 ## Database constraints
 
 https://www.overleaf.com/project/5d41e787eb35bf4afc09152e
