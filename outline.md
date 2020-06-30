@@ -41,6 +41,13 @@ The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(f
 - Field w/ plots overlaid. 
   - Figure: up-close image of plots from here: https://github.com/terraref/reference-data/issues/194
   - Definition of full plots and sub-plots
+  
+### Season 4
+
+* Experimental layout https://docs.google.com/spreadsheets/d/1iUTkyU5P3IfohQg-sLq_ETWvaWBHF5Nvchx3iI8C8Qw/edit#gid=1165578389
+* details on irrigation https://github.com/genophenoenvo/terraref-datasets/issues/85
+* irrigation records (https://terraref.ncsa.illinois.edu/clowder/api/geostreams/datapoints?stream_id=3212
+### Season 6 
 
 ## Germplasm
 
